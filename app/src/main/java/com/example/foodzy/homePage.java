@@ -1,34 +1,85 @@
 package com.example.foodzy;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
+
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
+
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class homePage extends AppCompatActivity {
     private ViewPager2 viewPager2;
-    private Handler sliderHandler = new Handler();
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbarAppbar;
+    private final Handler sliderHandler = new Handler();
     LinearLayout dineIn, delivery, menu, tableBooking;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         dineIn = findViewById(R.id.idLLDineIn);
         menu = findViewById(R.id.idLLMenu);
         delivery = findViewById(R.id.idLLDelivery);
         tableBooking = findViewById(R.id.idLLTableBooking);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        navigationView = findViewById(R.id.navigationView);
+        toolbarAppbar = findViewById(R.id.idToolbarAppBar);
+
+        setSupportActionBar(toolbarAppbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,
+                toolbarAppbar, R.string.nav_open, R.string.nav_close);
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.idNavMenu) {
+                    Intent intent = new Intent(homePage.this, menu.class);
+                    startActivity(intent);
+                } else if (id == R.id.idNavCart) {
+                    Intent intent1 = new Intent(homePage.this, cart_details.class);
+                    startActivity(intent1);
+                } else if (id == R.id.idNavSignOut) {
+                    Intent intent2 = new Intent(homePage.this, logInPage.class);
+                    startActivity(intent2);
+                } else {
+                    Toast.makeText(homePage.this, "No Correct Input", Toast.LENGTH_SHORT).show();
+                }
+
+                drawerLayout.closeDrawer(GravityCompat.START);
+
+                return true;
+            }
+        });
+
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +148,15 @@ public class homePage extends AppCompatActivity {
                 sliderHandler.postDelayed(sliderRunnable, 2000); // slide duration 2 seconds
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
     }
 
     private Runnable sliderRunnable = new Runnable() {
