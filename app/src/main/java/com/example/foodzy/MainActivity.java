@@ -14,7 +14,6 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button;
     private static int SPLASH_TIME_OUT = 3000;
 
     @Override

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -73,6 +74,12 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
                     Intent intent1 = new Intent(DeliveryMenuPage.this, cart_details.class);
                     startActivity(intent1);
                 } else if (id == R.id.idNavSignOut) {
+                    SharedPreferences sharedPreferences = getSharedPreferences(logInPage.PREFS_NAME, 0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putBoolean("hasLoggedIn", false);
+                    editor.commit();
+
                     Intent intent2 = new Intent(DeliveryMenuPage.this, logInPage.class);
                     startActivity(intent2);
                 } else {

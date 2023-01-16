@@ -1,5 +1,6 @@
 package com.example.foodzy;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,6 +70,12 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                     Intent intent1 = new Intent(StaticMenu.this, cart_details.class);
                     startActivity(intent1);
                 } else if (id == R.id.idNavSignOut) {
+                    SharedPreferences sharedPreferences = getSharedPreferences(logInPage.PREFS_NAME, 0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putBoolean("hasLoggedIn", false);
+                    editor.commit();
+
                     Intent intent2 = new Intent(StaticMenu.this, logInPage.class);
                     startActivity(intent2);
                 } else {
