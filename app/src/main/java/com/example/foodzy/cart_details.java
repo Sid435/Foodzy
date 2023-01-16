@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class cart_details extends AppCompatActivity {
-
     public TextView head,t2,t3;
     public Button b1;
     public ArrayList<String> nameList,f_nameList,priceList,f_priceList,crossList,f_crossList,quantityList,f_quantityList,final_priceList;
@@ -59,7 +58,6 @@ public class cart_details extends AppCompatActivity {
         });
 
     }
-
     void payusingupi(String name, String upiId, String note, String amount)
     {
         Log.e("main","name" + name + "--up--" + upiId + "--" + note + "--" + amount);
@@ -78,14 +76,11 @@ public class cart_details extends AppCompatActivity {
         if (null!= chooser.resolveActivity(getPackageManager()))
         {
             startActivityForResult(chooser,UPI_PAYMENT);
-        }
-        else
+        }else
         {
             Toast.makeText(this, "No UPI App Installed", Toast.LENGTH_SHORT).show();
         }
-
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -111,8 +106,7 @@ public class cart_details extends AppCompatActivity {
                         dataList.add("nothing");
                         upiPaymentDataOperation(dataList);
                     }
-                }
-                else
+                }else
                 {
                     Log.e("UPI","onActivityResult: " + "Return Data is null");
                     ArrayList<String> dataList = new ArrayList<>();
@@ -122,7 +116,6 @@ public class cart_details extends AppCompatActivity {
                 break;
         }
     }
-
     private void upiPaymentDataOperation(ArrayList<String> data)
     {
         if (isConnectionAvailable(cart_details.this))
@@ -175,7 +168,6 @@ public class cart_details extends AppCompatActivity {
             Toast.makeText(this, "Internet connection is not available. Please check and try again", Toast.LENGTH_SHORT).show();
         }
     }
-
     public static boolean isConnectionAvailable(Context context)
     {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
