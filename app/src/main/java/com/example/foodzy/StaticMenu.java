@@ -1,12 +1,22 @@
 package com.example.foodzy;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +29,9 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
             layoutManagerMenuEntree, layoutManagerMenuDesert,
             layoutManagerMenuBeverages;
     private LinearLayoutManager layoutManagerCategory;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbarAppbar;
     private List<StaticMenuOptionsModal> userListMenuMainCourse, userListMenuAppetizers,
             userListMenuEntree, userListMenuDesert, userListMenuBeverages;
     private List<StaticCategoryOptionModal> userListCategory ;
@@ -26,11 +39,48 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
             adaptorMenuDesert, adaptorMenuBeverages;
     StaticCategoryOptionAdaptor adaptorCategory;
     private TextView title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_static_menu);
         title = findViewById(R.id.idTVFoodtype);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        navigationView = findViewById(R.id.navigationView);
+        toolbarAppbar = findViewById(R.id.idToolbarAppBar);
+
+        setSupportActionBar(toolbarAppbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,
+                toolbarAppbar, R.string.nav_open, R.string.nav_close);
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.idNavMenu) {
+                    Intent intent = new Intent(StaticMenu.this, menu.class);
+                    startActivity(intent);
+                } else if (id == R.id.idNavCart) {
+                    Intent intent1 = new Intent(StaticMenu.this, cart_details.class);
+                    startActivity(intent1);
+                } else if (id == R.id.idNavSignOut) {
+                    Intent intent2 = new Intent(StaticMenu.this, logInPage.class);
+                    startActivity(intent2);
+                } else {
+                    Toast.makeText(StaticMenu.this, "No Correct Input", Toast.LENGTH_SHORT).show();
+                }
+
+                drawerLayout.closeDrawer(GravityCompat.START);
+
+                return true;
+            }
+        });
+
 
         initDataCategory();
         initRecyclerViewCategory();
@@ -228,4 +278,13 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
             initRecyclerViewMenuBeverages();
         }
     }
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+    }
+
 }

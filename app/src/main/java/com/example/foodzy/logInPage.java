@@ -1,5 +1,7 @@
 package com.example.foodzy;
 
+import androidx.appcompat.widget.AppCompatButton;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +9,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class logInPage extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText mail10, pass10;
-    private Button signIn, forgetPass, signUp;
+    private AppCompatButton signIn, forgetPass, signUp;
     public static String PREFS_NAME = "MyPrefsFile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,5 +78,11 @@ public class logInPage extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, logInPage.class);
+        startActivity(intent);
     }
 }

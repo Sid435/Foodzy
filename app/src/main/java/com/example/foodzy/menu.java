@@ -1,15 +1,23 @@
 package com.example.foodzy;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +26,10 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
     private RecyclerView recyclerViewMenuMainCourse,recyclerViewMenuAppetizers,
             recyclerViewMenuEntree, recyclerViewMenuDesert,
             recyclerViewMenuBeverages, recyclerViewCategory;
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbarAppbar;
     private GridLayoutManager layoutManagerMenuMainCourse, layoutManagerMenuAppetizers,
             layoutManagerMenuEntree, layoutManagerMenuDesert,
             layoutManagerMenuBeverages;
@@ -36,6 +48,43 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
         setContentView(R.layout.activity_menu);
         title = findViewById(R.id.idTVFoodtype);
         f1 = findViewById(R.id.floatingActionButton);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        navigationView = findViewById(R.id.navigationView);
+        toolbarAppbar = findViewById(R.id.idToolbarAppBar);
+
+        setSupportActionBar(toolbarAppbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,
+                toolbarAppbar, R.string.nav_open, R.string.nav_close);
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.idNavMenu) {
+                    Intent intent = new Intent(menu.this, menu.class);
+                    startActivity(intent);
+                } else if (id == R.id.idNavCart) {
+                    Intent intent1 = new Intent(menu.this, cart_details.class);
+                    startActivity(intent1);
+                } else if (id == R.id.idNavSignOut) {
+                    Intent intent2 = new Intent(menu.this, logInPage.class);
+                    startActivity(intent2);
+                } else {
+                    Toast.makeText(menu.this, "No Correct Input", Toast.LENGTH_SHORT).show();
+                }
+
+                drawerLayout.closeDrawer(GravityCompat.START);
+
+                return true;
+            }
+        });
+
+
 
         initDataCategory();
         initRecyclerViewCategory();
@@ -240,4 +289,13 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
             initRecyclerViewMenuBeverages();
         }
     }
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+    }
+
 }

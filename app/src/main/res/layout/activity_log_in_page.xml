@@ -82,12 +82,13 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/signInButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
+                android:background="@drawable/login_page_buttons"
                 android:text="Sign In"
+
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
@@ -96,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/signUpButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -107,7 +108,7 @@
                     android:textAllCaps="false"
                     android:textSize="18sp" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/forgotPass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
