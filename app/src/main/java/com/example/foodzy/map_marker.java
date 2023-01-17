@@ -102,21 +102,6 @@ public class map_marker extends AppCompatActivity {
                         point_latitude = point.latitude;
                         point_longitude = point.longitude;
                         drawMarker(point, "Your order will be delivered here", "Move pin to exact location");
-
-
-//                        MarkerOptions markerOptions = new MarkerOptions();
-//                        markerOptions.position(point);
-//                        markerOptions.title("Your order will be delivered here");
-//                        markerOptions.snippet("Move pin to exact location");
-//                        markerOptions.draggable(true);
-//                        googleMap.clear();
-//                        googleMap.animateCamera(CameraUpdateFactory.newLatLng(point));
-//                        googleMap.addMarker(markerOptions);
-//                         Create location object
-//                        Location location = new Location(point.latitude, point.longitude);
-                        // add location to SQLite database
-//                        locationsDB.insert(location);
-
                     }
                 });
 
