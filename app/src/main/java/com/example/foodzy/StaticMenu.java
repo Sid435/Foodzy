@@ -293,5 +293,4 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
             super.onBackPressed();
         }
     }
-
 }

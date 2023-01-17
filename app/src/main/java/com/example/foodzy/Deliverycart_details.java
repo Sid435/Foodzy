@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,14 +28,18 @@ import java.util.List;
 
 public class Deliverycart_details extends AppCompatActivity {
 
-    public TextView head,t2,t3;
-    public Button b1;
+    public TextView head,t2,t3,address_tv,changeAddress;
+    String final_delivery_address,final_delivery_address_from_map;
+    public Button b1,b2;
     public ArrayList<String> nameList,f_nameList,priceList,f_priceList,crossList,f_crossList,quantityList,f_quantityList,final_priceList;
     RecyclerView recyclerView;
     Double final_CARTprice = 0.0;
     LinearLayoutManager layoutManager;
     List<DeliveryitemModel> userlist;
     DeliverycartAdapter adapter;
+    SharedPreferences.Editor editor ;
+    boolean Delivery_location_taken_frm_map,Delivery_location_taken;
+    LinearLayout layout;
     final int UPI_PAYMENT=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +48,53 @@ public class Deliverycart_details extends AppCompatActivity {
         head = findViewById(R.id.header);
         t2 = findViewById(R.id.textView2);
         t3 = findViewById(R.id.textView3);
+        address_tv = findViewById(R.id.textView1);
+        changeAddress = findViewById(R.id.changeAddress);
         b1 = findViewById(R.id.payButton);
+        b2 = findViewById(R.id.deliveryAddressBtn);
         f_nameList = loadList1();
         f_priceList = loadList2();
         f_crossList = loadList3();
         f_quantityList = loadList4();
+        layout=(LinearLayout)this.findViewById(R.id.layout1);
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("Delivery address",Context.MODE_PRIVATE);
+        editor = sp.edit();
         initData();
         initRecyclerView();
+
+        final_delivery_address = sp.getString("final delivery address","");
+        final_delivery_address_from_map = sp.getString("final delivery address from map","");
+        Delivery_location_taken = sp.getBoolean("delivery location taken",false);
+        Delivery_location_taken_frm_map = sp.getBoolean("delivery location taken from map",false);
+
+        if (Delivery_location_taken || Delivery_location_taken_frm_map){
+            b2.setVisibility(Button.GONE);
+            layout.setVisibility(LinearLayout.VISIBLE);
+        }
+        else {
+            layout.setVisibility(LinearLayout.GONE);
+        }
+
+        if(Delivery_location_taken){
+            address_tv.setText(final_delivery_address);
+        }
+        else{
+            address_tv.setText(final_delivery_address_from_map);
+        }
+
+
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                payusingupi("Name","8264993047@paytm","", final_CARTprice.toString());
+                if (Delivery_location_taken || Delivery_location_taken_frm_map){
+                    payusingupi("Name","8264993047@paytm","", final_CARTprice.toString());
+                }
+                else {
+                    Toast.makeText(Deliverycart_details.this, "Select delivery location", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
     }
 
     void payusingupi(String name, String upiId, String note, String amount)
@@ -160,6 +197,8 @@ public class Deliverycart_details extends AppCompatActivity {
             {
                 Toast.makeText(this, "Transaction Successful", Toast.LENGTH_SHORT).show();
                 Log.d("UPI","responseStr: " + approvalRefNo);
+                Intent intent = new Intent(Deliverycart_details.this,order_confirmed.class);
+                startActivity(intent);
             }
             else if ("Payment cancelled by user".equals(paymentCancel))
             {
@@ -192,11 +231,11 @@ public class Deliverycart_details extends AppCompatActivity {
 
     private void initData() {
         userlist = new ArrayList<>();
-        for (int i=0;i<f_nameList.size();i++) {
-            Double f1 = Double.parseDouble(f_priceList.get(i)) * Double.parseDouble(f_quantityList.get(i));
+        for (int j=0;j<f_nameList.size();j++) {
+            Double f1 = Double.parseDouble(f_priceList.get(j)) * Double.parseDouble(f_quantityList.get(j));
             String f2 = f1.toString();
             final_CARTprice += Double.parseDouble(f2);
-            userlist.add(new DeliveryitemModel(f_nameList.get(i), f_priceList.get(i), "X", f_quantityList.get(i), f2));
+            userlist.add(new DeliveryitemModel(f_nameList.get(j), f_priceList.get(j), "X", f_quantityList.get(j), f2));
         }
         t3.setText(final_CARTprice.toString());
     }
@@ -255,6 +294,14 @@ public class Deliverycart_details extends AppCompatActivity {
         quantityList = gson4.fromJson(json4,type4);
         return quantityList;
     }
-
-
+    public void select_delivery_location(View view){
+        Intent intent = new Intent(Deliverycart_details.this,select_location.class);
+        startActivity(intent);
+    }
+    public void change_address(View view){
+        editor.remove("delivery location taken").commit();
+        editor.remove("delivery location taken from map").commit();
+        Intent intent = new Intent(Deliverycart_details.this,select_location.class);
+        startActivity(intent);
+    }
 }
