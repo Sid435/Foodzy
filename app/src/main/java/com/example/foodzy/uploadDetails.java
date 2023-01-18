@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -14,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 public class uploadDetails extends AppCompatActivity {
 
-    private Button submit;
+    private AppCompatButton submit;
     private RadioButton genderradioButton;
     private EditText name, lname, phone, mail, pass;
     private RadioGroup gender;
