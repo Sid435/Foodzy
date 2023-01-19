@@ -34,7 +34,7 @@ public class homePage extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar toolbarAppbar;
     private final Handler sliderHandler = new Handler();
-    LinearLayout dineIn, delivery, menu, tableBooking;
+    LinearLayout dineIn, delivery, menu, tableBooking, lodging;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,7 @@ public class homePage extends AppCompatActivity {
         menu = findViewById(R.id.idLLMenu);
         delivery = findViewById(R.id.idLLDelivery);
         tableBooking = findViewById(R.id.idLLTableBooking);
+        lodging = findViewById(R.id.idHotelLodging);
 
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
@@ -68,7 +69,11 @@ public class homePage extends AppCompatActivity {
                 } else if (id == R.id.idNavCart) {
                     Intent intent1 = new Intent(homePage.this, cart_details.class);
                     startActivity(intent1);
-                } else if (id == R.id.idNavSignOut) {
+                }else if(id == R.id.idLodging){
+                    Intent intent3 = new Intent(homePage.this, LodgingActivity.class);
+                    startActivity(intent3);
+                }
+                else if (id == R.id.idNavSignOut) {
                     SharedPreferences sharedPreferences = getSharedPreferences(logInPage.PREFS_NAME, 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -120,13 +125,20 @@ public class homePage extends AppCompatActivity {
             }
         });
 
+        lodging.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(homePage.this, LodgingActivity.class);
+                startActivity(intent);
+            }
+        });
 
         List<SliderItem> sliderItems = new ArrayList<>();
         sliderItems.add(new SliderItem(R.drawable.image1));
         sliderItems.add(new SliderItem(R.drawable.image2));
         sliderItems.add(new SliderItem(R.drawable.image3));
-        sliderItems.add(new SliderItem(R.drawable.image4));
-        sliderItems.add(new SliderItem(R.drawable.image5));
+        sliderItems.add(new SliderItem(R.drawable.image6));
+        sliderItems.add(new SliderItem(R.drawable.image7));
 
         viewPager2.setAdapter(new SliderAdapter(sliderItems,viewPager2));
 
@@ -144,7 +156,6 @@ public class homePage extends AppCompatActivity {
                 page.setScaleY(0.85f + r * 0.15f);
             }
         });
-
         viewPager2.setPageTransformer(compositePageTransformer);
 
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {

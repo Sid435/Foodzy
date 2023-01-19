@@ -59,4 +59,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_track_order">track_order</string>
+
+    <string-array name="ROOM_TYPE">
+        <item>CHOOSE ROOM</item>
+        <item>NORMAL (1 BEDDED)</item>
+        <item>DELUXE (1 BEDDED)</item>
+        <item>SUPER DELUXE (1 BEDDED)</item>
+        <item>NORMAL (2 BEDDED)</item>
+        <item>DELUXE (2 BEDDED)</item>
+        <item>SUPER DELUXE (2 BEDDED)</item>
+        <item>HALL (5 BEDDED)</item>
+        <item>HALL (7 BEDDED)</item>
+    </string-array>
 </resources>

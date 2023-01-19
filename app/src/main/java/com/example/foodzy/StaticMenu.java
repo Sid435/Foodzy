@@ -22,7 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaticMenu extends AppCompatActivity implements StaticCategoryOptionAdaptor.CategoryClickInterface{
+public class StaticMenu extends AppCompatActivity implements StaticCategoryOptionAdaptor.CategoryClickInterface {
     private RecyclerView recyclerViewMenuMainCourse,recyclerViewMenuAppetizers,
             recyclerViewMenuEntree, recyclerViewMenuDesert,
             recyclerViewMenuBeverages, recyclerViewCategory;
@@ -78,6 +78,9 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
 
                     Intent intent2 = new Intent(StaticMenu.this, logInPage.class);
                     startActivity(intent2);
+                }else if(id == R.id.idLodging){
+                    Intent intent3 = new Intent(StaticMenu.this, LodgingActivity.class);
+                    startActivity(intent3);
                 } else {
                     Toast.makeText(StaticMenu.this, "No Correct Input", Toast.LENGTH_SHORT).show();
                 }
@@ -248,6 +251,8 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
 
         setRecyclerView(category);
     }
+
+
 
     private void setRecyclerView(String category) {
         if (category.equals("Main Course") ){

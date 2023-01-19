@@ -38,7 +38,6 @@ public class StaticMenuOptionsAdaptor extends RecyclerView.Adapter<StaticMenuOpt
 
         holder.setData(resource, text, price);
     }
-
     @Override
     public int getItemCount() {
         return UserList.size();

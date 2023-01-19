@@ -30,9 +30,10 @@
             android:paddingEnd="0dp"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,8 +47,8 @@
                     android:background="@drawable/transparent_background100"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
                         android:src="@drawable/dinein"
                         android:scaleType="centerCrop"/>
                     <TextView
@@ -66,10 +67,10 @@
                     android:background="@drawable/transparent_background100"
                     android:padding="10dp"
                     android:id="@+id/idLLDelivery"
-                    android:layout_marginStart="10dp">
+                    android:layout_marginStart="40dp">
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
                         android:src="@drawable/homedelivery"
                         android:scaleType="centerCrop"/>
                     <TextView
@@ -85,7 +86,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,8 +97,8 @@
                     android:background="@drawable/transparent_background100"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
                         android:src="@drawable/menu"
                         android:scaleType="center"/>
                     <TextView
@@ -107,7 +109,13 @@
                         android:textSize="20dp"
                         android:textStyle="bold"/>
                 </LinearLayout>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -118,14 +126,37 @@
                     android:padding="10dp"
                     android:layout_marginStart="10dp">
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
                         android:src="@drawable/tablebooking"
                         android:scaleType="centerCrop"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Table Booking"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/idHotelLodging"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/transparent_background100"
+                    android:padding="10dp">
+                    <ImageView
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:src="@drawable/lodging_1"
+                        android:scaleType="centerCrop"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lodging"
                         android:textColor="@color/black"
                         android:textSize="20dp"
                         android:textStyle="bold"/>
