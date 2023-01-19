@@ -73,6 +73,9 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
                 } else if (id == R.id.idNavCart) {
                     Intent intent1 = new Intent(DeliveryMenuPage.this, cart_details.class);
                     startActivity(intent1);
+                }else if(id == R.id.idLodging){
+                    Intent intent3 = new Intent(DeliveryMenuPage.this, LodgingActivity.class);
+                    startActivity(intent3);
                 } else if (id == R.id.idNavSignOut) {
                     SharedPreferences sharedPreferences = getSharedPreferences(logInPage.PREFS_NAME, 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();

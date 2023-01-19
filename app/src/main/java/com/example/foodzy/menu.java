@@ -81,7 +81,10 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
 
                     Intent intent2 = new Intent(menu.this, logInPage.class);
                     startActivity(intent2);
-                } else {
+                } else if(id == R.id.idLodging){
+                    Intent intent3 = new Intent(menu.this, LodgingActivity.class);
+                    startActivity(intent3);
+                }else {
                     Toast.makeText(menu.this, "No Correct Input", Toast.LENGTH_SHORT).show();
                 }
 
