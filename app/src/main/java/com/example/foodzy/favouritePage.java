@@ -42,7 +42,7 @@ public class favouritePage extends AppCompatActivity {
         reciepes.put("paneer tikka masala","paneer_tikka_masala");
         reciepes.put("palak chicken","palak_chicken");
         reciepes.put("chicken curry","chicken_curry");
-
+//sout
         reciepes.put("crescents","appetizers");
         reciepes.put("canapes","canapes");
         reciepes.put("stuffed samosa","stuffed_samosa");
