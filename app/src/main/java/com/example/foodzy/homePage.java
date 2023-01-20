@@ -73,6 +73,10 @@ public class homePage extends AppCompatActivity {
                     Intent intent3 = new Intent(homePage.this, LodgingActivity.class);
                     startActivity(intent3);
                 }
+                else if (id==R.id.idNavFavorites){
+                    Intent intent3 = new Intent(homePage.this,favouritePage.class);
+                    startActivity(intent3);
+                }
                 else if (id == R.id.idNavSignOut) {
                     SharedPreferences sharedPreferences = getSharedPreferences(logInPage.PREFS_NAME, 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();

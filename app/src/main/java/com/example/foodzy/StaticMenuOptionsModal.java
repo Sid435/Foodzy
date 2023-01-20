@@ -4,6 +4,7 @@ public class StaticMenuOptionsModal {
     private String text;
     private double price;
     private int quantity = 0;
+    private int star;
 
     public int getQuantity() {
         return quantity;
@@ -13,10 +14,11 @@ public class StaticMenuOptionsModal {
         this.quantity = quantity;
     }
 
-    public StaticMenuOptionsModal(int image, String text, double price) {
+    public StaticMenuOptionsModal(int image, String text, double price,int star) {
         this.image = image;
         this.text = text;
         this.price = price;
+        this.star=star;
     }
 
     public double getPrice() {
@@ -42,4 +44,6 @@ public class StaticMenuOptionsModal {
     public void setText(String text) {
         this.text = text;
     }
+
+    public int getStar(){return star;}
 }
