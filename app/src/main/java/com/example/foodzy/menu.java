@@ -213,13 +213,12 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
     private void initDataMenuDesert() {
         title.setText("Desert");
         userListMenuDesert = new ArrayList<>();
-        userListMenuDesert.add(new MenuOptionsModal(R.drawable.molten_cake, "Chocolate molten     Cake", 100));
+        userListMenuDesert.add(new MenuOptionsModal(R.drawable.molten_cake, "Chocolate molten Cake", 100));
         userListMenuDesert.add(new MenuOptionsModal(R.drawable.chocolate_truffle, "Chocolate truffle ", 100));
         userListMenuDesert.add(new MenuOptionsModal(R.drawable.ube_cheesecake, "Ube Cheesecake", 100));
         userListMenuDesert.add(new MenuOptionsModal(R.drawable.allrecipes_brownies, "TikTok Brownies", 100));
         userListMenuDesert.add(new MenuOptionsModal(R.drawable.cinnamon_cake, "Cinnamon Roll Dump Cake", 100));
         userListMenuDesert.add(new MenuOptionsModal(R.drawable.pumpkin_pie, "Marbled Chocolate Pumpkin Pie", 100));
-        userListMenuDesert.add(new MenuOptionsModal(R.drawable.pecan_pie_cheesecake, "Marbled Chocolate Pumpkin Pie", 100));
 
     }
     private void initRecyclerViewMenuDesert() {
