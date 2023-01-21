@@ -81,19 +81,12 @@ public class favouritePage extends AppCompatActivity {
 
 
     public void initData(){
-//        favarray.add(new favouriteModelClass(R.drawable.image1,"aryan","100"));
         ref1 = FirebaseDatabase.getInstance().getReference("FAVOURITES");
-//        favarray.add(new favouriteModelClass(R.drawable.image1,"a","100"));
         ref1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                System.out.println("CONTAINS");
-                int i=1;
                 for (DataSnapshot ds: dataSnapshot.getChildren()){
                     String k = ds.getKey().toString();
-                    System.out.println(i);
-                    System.out.println(k);
-                    i++;
                     favarray.add(new favouriteModelClass(getResources().getIdentifier(reciepes.get(k.toLowerCase()),"drawable",getPackageName()),k,ds.getValue().toString()));
                 }
                 favouriteAdapter.notifyDataSetChanged();
