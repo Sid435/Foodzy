@@ -39,6 +39,7 @@
             android:id="@+id/idTVFoodtype"
             android:layout_below="@id/typeFood"
             android:layout_centerHorizontal="true"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

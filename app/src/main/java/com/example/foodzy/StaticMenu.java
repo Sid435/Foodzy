@@ -81,6 +81,9 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
 
                     Intent intent2 = new Intent(StaticMenu.this, logInPage.class);
                     startActivity(intent2);
+                }else if (id==R.id.idNavFavorites){
+                    Intent intent3 = new Intent(StaticMenu.this,favouritePage.class);
+                    startActivity(intent3);
                 }else if(id == R.id.idLodging){
                     Intent intent3 = new Intent(StaticMenu.this, LodgingActivity.class);
                     startActivity(intent3);
