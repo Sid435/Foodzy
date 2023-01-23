@@ -1,12 +1,21 @@
 package com.example.foodzy;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,6 +27,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class favouritePage extends AppCompatActivity {
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbarAppbar;
+
     RecyclerView recyclerView;
     GridLayoutManager layoutManager;
     favouriteAdapter favouriteAdapter;
@@ -30,6 +44,57 @@ public class favouritePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourite_page);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        navigationView = findViewById(R.id.navigationView);
+        toolbarAppbar = findViewById(R.id.idToolbarAppBarFav);
+
+        setSupportActionBar(toolbarAppbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,
+                toolbarAppbar, R.string.nav_open, R.string.nav_close);
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.idNavMenu) {
+                    Intent intent = new Intent(favouritePage.this, menu.class);
+                    startActivity(intent);
+                } else if (id == R.id.idNavCart) {
+                    Intent intent1 = new Intent(favouritePage.this, cart_details.class);
+                    startActivity(intent1);
+                }else if(id == R.id.idLodging){
+                    Intent intent3 = new Intent(favouritePage.this, LodgingActivity.class);
+                    startActivity(intent3);
+                }
+                else if (id==R.id.idNavFavorites){
+                    Intent intent3 = new Intent(favouritePage.this,favouritePage.class);
+                    startActivity(intent3);
+                }
+                else if (id == R.id.idNavSignOut) {
+                    SharedPreferences sharedPreferences = getSharedPreferences(logInPage.PREFS_NAME, 0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putBoolean("hasLoggedIn", false);
+                    editor.commit();
+
+                    Intent intent2 = new Intent(favouritePage.this, logInPage.class);
+                    startActivity(intent2);
+                } else {
+                    Toast.makeText(favouritePage.this, "No Correct Input", Toast.LENGTH_SHORT).show();
+                }
+
+                drawerLayout.closeDrawer(GravityCompat.START);
+
+                return true;
+            }
+        });
+
+
         reciepes.put("chicken shashlic","chicken_shashlic");
         reciepes.put("malai kofta","malai_kofta");
         reciepes.put("palak paneer","palak_paneer");
