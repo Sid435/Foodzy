@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,7 +30,8 @@ import java.util.concurrent.TimeUnit;
 public class otpVerification extends AppCompatActivity {
     private TextView textView;
     private EditText one,two, three, four, five, six;
-    private Button verify, resendOtp1;
+    private Button verify;
+    private AppCompatButton resendOtp1;
     private String backendotp;FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
