@@ -88,7 +88,7 @@ public class Deliverycart_details extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Delivery_location_taken || Delivery_location_taken_frm_map){
-                    payusingupi("Name","8264993047@paytm","", final_CARTprice.toString());
+                    payusingupi("Name","VRPFOODBOX@sc","", final_CARTprice.toString());
                 }
                 else {
                     Toast.makeText(Deliverycart_details.this, "Select delivery location", Toast.LENGTH_SHORT).show();

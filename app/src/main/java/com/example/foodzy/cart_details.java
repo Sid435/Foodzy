@@ -53,7 +53,7 @@ public class cart_details extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                payusingupi("Name","8264993047@paytm","", final_CARTprice.toString());
+                payusingupi("Name","VRPFOODBOX@sc","", final_CARTprice.toString());
             }
         });
 

@@ -144,10 +144,10 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
     private void initDataMenuMainCourse(){
         title.setText("Main Course");
         userListMenuMainCourse = new ArrayList<>();
-        userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.chicken_shashlic, "Chicken Shashlic", 100));
-        userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.malai_kofta, "Malai Kofta", 100));
-        userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.palak_paneer, "Palak Paneer", 100));
-        userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.saag_aloo, "Saag Aloo", 100));
+        userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.chicken_shashlic, "Chicken Shashlic", 1));
+        userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.malai_kofta, "Malai Kofta", 1));
+        userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.palak_paneer, "Palak Paneer", 1));
+        userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.saag_aloo, "Saag Aloo", 1));
         userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.paneer_jalfrezi, "Paneer Jalfrezi", 100));
         userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.paneer_vindaloo, "Paneer Vindaloo", 100));
         userListMenuMainCourse.add(new DeliveryMenuOptionsModal(R.drawable.vegetable_biriyani, "Vegetable Biryani", 100));
@@ -170,11 +170,11 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
         title.setText("Appetizers");
         userListMenuAppetizers = new ArrayList<>();
         userListMenuAppetizers.add(new DeliveryMenuOptionsModal(R.drawable.appetizers, "Crescents", 100));
-        userListMenuAppetizers.add(new DeliveryMenuOptionsModal(R.drawable.canapes, "Canapes", 100));
+        userListMenuAppetizers.add(new DeliveryMenuOptionsModal(R.drawable.canapes, "Canapes", 1));
         userListMenuAppetizers.add(new DeliveryMenuOptionsModal(R.drawable.stuffed_samosa, "Stuffed Samosa", 100));
         userListMenuAppetizers.add(new DeliveryMenuOptionsModal(R.drawable.pita_chips, "Pita Chips", 100));
 
-        userListMenuAppetizers.add(new DeliveryMenuOptionsModal(R.drawable.chilli_paneer, "Chilli Paneer", 100));
+        userListMenuAppetizers.add(new DeliveryMenuOptionsModal(R.drawable.chilli_paneer, "Chilli Paneer", 1));
         userListMenuAppetizers.add(new DeliveryMenuOptionsModal(R.drawable.medu_vada, "Medu Vada", 100));
         userListMenuAppetizers.add(new DeliveryMenuOptionsModal(R.drawable.stuffed_mashrooms, "Stuffed Mushroom", 100));
     }
@@ -192,11 +192,11 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
         userListMenuEntree = new ArrayList<>();
         userListMenuEntree.add(new DeliveryMenuOptionsModal(R.drawable.antipasto_platter, "Antipasto Platter", 100));
         userListMenuEntree.add(new DeliveryMenuOptionsModal(R.drawable.chicken_dumpling, "Chicken and Spinach Dumpling", 100));
-        userListMenuEntree.add(new DeliveryMenuOptionsModal(R.drawable.crispy_bocconcini, "Crispy Bacconcini", 100));
+        userListMenuEntree.add(new DeliveryMenuOptionsModal(R.drawable.crispy_bocconcini, "Crispy Bacconcini", 1));
         userListMenuEntree.add(new DeliveryMenuOptionsModal(R.drawable.chilli_prawns, "Chilli Prawns", 100));
 
         userListMenuEntree.add(new DeliveryMenuOptionsModal(R.drawable.bacon_and_cheese_croquettes, "Bacon and Cheese Croquettes", 100));
-        userListMenuEntree.add(new DeliveryMenuOptionsModal(R.drawable.bruschetta, "Bruschetta", 100));
+        userListMenuEntree.add(new DeliveryMenuOptionsModal(R.drawable.bruschetta, "Bruschetta", 1));
         userListMenuEntree.add(new DeliveryMenuOptionsModal(R.drawable.steamed_dumplings, "Steamed Dumplings", 100));
 
 
@@ -214,10 +214,10 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
         title.setText("Desert");
         userListMenuDesert = new ArrayList<>();
         userListMenuDesert.add(new DeliveryMenuOptionsModal(R.drawable.molten_cake, "Chocolate molten     Cake", 100));
-        userListMenuDesert.add(new DeliveryMenuOptionsModal(R.drawable.chocolate_truffle, "Chocolate truffle ", 100));
+        userListMenuDesert.add(new DeliveryMenuOptionsModal(R.drawable.chocolate_truffle, "Chocolate truffle ", 1));
         userListMenuDesert.add(new DeliveryMenuOptionsModal(R.drawable.ube_cheesecake, "Ube Cheesecake", 100));
         userListMenuDesert.add(new DeliveryMenuOptionsModal(R.drawable.allrecipes_brownies, "TikTok Brownies", 100));
-        userListMenuDesert.add(new DeliveryMenuOptionsModal(R.drawable.cinnamon_cake, "Cinnamon Roll Dump Cake", 100));
+        userListMenuDesert.add(new DeliveryMenuOptionsModal(R.drawable.cinnamon_cake, "Cinnamon Roll Dump Cake", 1));
         userListMenuDesert.add(new DeliveryMenuOptionsModal(R.drawable.pumpkin_pie, "Marbled Chocolate Pumpkin Pie", 100));
         userListMenuDesert.add(new DeliveryMenuOptionsModal(R.drawable.pecan_pie_cheesecake, "Marbled Chocolate Pumpkin Pie", 100));
 
@@ -235,11 +235,11 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
     private void initDataMenuBeverages() {
         title.setText("Beverages");
         userListMenuBeverages = new ArrayList<>();
-        userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.pink_gin, "Pink Gin", 100));
+        userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.pink_gin, "Pink Gin", 1));
         userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.lemon_fizz, "Lemon Fizz", 100));
         userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.sake_fizz_cocktail, "Sake Fizz Cocktail", 100));
         userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.vanilla_strawbeyy_iced_tea, "Refreshing Vanilla Strawberry Iced Tea", 100));
-        userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.peach_smoothie, "Peach Smoothie", 100));
+        userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.peach_smoothie, "Peach Smoothie", 1));
         userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.raspberry_smoothie, "Rhubarb Bellini Smoothie", 100));
         userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.turquoise_tonic, " Turquoise Tonic", 100));
 
