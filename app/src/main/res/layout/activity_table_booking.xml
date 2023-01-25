@@ -187,12 +187,11 @@
         app:layout_constraintVertical_bias="1.0"
         tools:text="INCASE OF SQUAD SIZE CHANGE , RECHECK THE AVAILABILITY" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
         android:layout_width="229dp"
         android:layout_height="52dp"
-        android:background="#D5B27D"
-        android:backgroundTint="#D5B27D"
+        android:background="@drawable/button_with_maroon"
         android:onClick="test"
         android:text="SUBMIT DETAILS"
         android:textAlignment="center"

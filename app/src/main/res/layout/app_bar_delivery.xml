@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="#101010"
     android:layout_height="match_parent">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -21,14 +22,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/typeFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/typeFood"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal"
-            tools:listitem="@layout/delivery_food_type_options"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/delivery_food_type_options" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,6 +42,7 @@
             android:padding="5dp"
             android:text="Main Course"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:id="@+id/idTVFoodtype"
             android:layout_below="@id/typeFood"
             android:layout_centerHorizontal="true"/>
@@ -110,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:src="@drawable/ic_baseline_shopping_cart_24"
+            android:src="@drawable/baseline_shopping_cart_another_24"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:backgroundTint="@color/white"

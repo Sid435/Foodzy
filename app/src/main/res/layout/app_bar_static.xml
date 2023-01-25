@@ -21,14 +21,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/typeFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/typeFood"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal"
-            tools:listitem="@layout/static_food_type_option"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/static_food_type_option" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,6 +41,7 @@
             android:padding="5dp"
             android:text="Main Course"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:id="@+id/idTVFoodtype"
             android:layout_below="@id/typeFood"
             android:layout_centerHorizontal="true"/>

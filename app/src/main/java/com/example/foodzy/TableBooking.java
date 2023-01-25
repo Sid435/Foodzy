@@ -1,6 +1,7 @@
 package com.example.foodzy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -27,7 +28,8 @@ import java.util.Calendar;
 public class TableBooking extends AppCompatActivity {
     EditText date,time,name,address,phn;
     Spinner sqsize;
-    Button b,sb;
+    AppCompatButton b;
+    Button sb;
     TextView t,t2,t3,t17;
     @SuppressLint("MissingInflatedId")
     @Override

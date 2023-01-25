@@ -18,7 +18,7 @@
         android:id="@+id/idNavCart"
         android:title="Cart"
         android:enabled="true"
-        android:icon="@drawable/baseline_shopping_cart_another_24"/>
+        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
     <item
         android:id="@+id/idNavOrders"
         android:title="Orders"

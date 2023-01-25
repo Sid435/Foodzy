@@ -62,7 +62,7 @@ public class favouritePage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.idNavMenu) {
-                    Intent intent = new Intent(favouritePage.this, menu.class);
+                    Intent intent = new Intent(favouritePage.this, StaticMenu.class);
                     startActivity(intent);
                 } else if (id == R.id.idNavCart) {
                     Intent intent1 = new Intent(favouritePage.this, cart_details.class);
