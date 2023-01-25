@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="140dp"
-    android:layout_height="100dp"
+    android:layout_width="160dp"
+    android:layout_height="170dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     app:cardUseCompatPadding="true"
@@ -11,25 +11,27 @@
     <RelativeLayout
         android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#101010">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@color/yellow"
+            android:layout_height="120dp"
+            android:src="@color/blackShade1"
             android:id="@+id/idIVCategory"
-            android:scaleType="centerCrop"
-            />
+            android:foreground="@drawable/transparent_backgroud"
+            android:scaleType="centerCrop" />
+
         <TextView
+            android:id="@+id/idTVCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_below="@id/idIVCategory"
             android:layout_centerInParent="true"
-            android:textAlignment="center"
+            android:gravity="center"
             android:padding="3dp"
-            android:textColor="@color/white"
             android:text="Category"
-            android:textStyle="bold"
-            android:id="@+id/idTVCategory"/>
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>

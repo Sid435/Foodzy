@@ -34,7 +34,8 @@ public class homePage extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar toolbarAppbar;
     private final Handler sliderHandler = new Handler();
-    LinearLayout dineIn, delivery, menu, tableBooking, lodging;
+    LinearLayout dineIn, delivery, tableBooking, lodging;
+//    LinearLayout menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +43,7 @@ public class homePage extends AppCompatActivity {
 
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         dineIn = findViewById(R.id.idLLDineIn);
-        menu = findViewById(R.id.idLLMenu);
+//        menu = findViewById(R.id.idLLMenu);
         delivery = findViewById(R.id.idLLDelivery);
         tableBooking = findViewById(R.id.idLLTableBooking);
         lodging = findViewById(R.id.idHotelLodging);
@@ -64,7 +65,7 @@ public class homePage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.idNavMenu) {
-                    Intent intent = new Intent(homePage.this, menu.class);
+                    Intent intent = new Intent(homePage.this, StaticMenu.class);
                     startActivity(intent);
                 } else if (id == R.id.idNavCart) {
                     Intent intent1 = new Intent(homePage.this, cart_details.class);
@@ -97,13 +98,13 @@ public class homePage extends AppCompatActivity {
         });
 
 
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(homePage.this, StaticMenu.class);
-                startActivity(intent);
-            }
-        });
+//        menu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(homePage.this, StaticMenu.class);
+//                startActivity(intent);
+//            }
+//        });
 
         tableBooking.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -47,9 +47,8 @@ public class StaticMenuOptionsAdaptor extends RecyclerView.Adapter<StaticMenuOpt
         String text = UserList.get(position).getText();
         String price = String.valueOf(UserList.get(position).getPrice());
         ArrayList <String> a1 = new ArrayList<>();
-
-
-        holder.setData(resource, text, price);
+        String desc = String.valueOf(UserList.get(position).getDesc().toString());
+        holder.setData(resource, text, price, desc);
         holder.star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +90,7 @@ public class StaticMenuOptionsAdaptor extends RecyclerView.Adapter<StaticMenuOpt
         private ImageView image;
         private TextView text, price;
         private ImageView star;
+        private TextView desc;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,13 +98,15 @@ public class StaticMenuOptionsAdaptor extends RecyclerView.Adapter<StaticMenuOpt
             text = itemView.findViewById(R.id.fav_name);
             price = itemView.findViewById(R.id.fav_price);
             star = itemView.findViewById(R.id.star);
+            desc = itemView.findViewById(R.id.foodDescription);
 
         }
 
-        public void setData(int resource, String text1, String price1) {
+        public void setData(int resource, String text1, String price1, String desc1) {
             image.setImageResource(resource);
             text.setText(text1);
             price.setText(price1);
+            desc.setText(desc1);
         }
 
     }

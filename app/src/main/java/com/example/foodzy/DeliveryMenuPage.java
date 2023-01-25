@@ -68,7 +68,7 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.idNavMenu) {
-                    Intent intent = new Intent(DeliveryMenuPage.this, menu.class);
+                    Intent intent = new Intent(DeliveryMenuPage.this, StaticMenu.class);
                     startActivity(intent);
                 } else if (id == R.id.idNavCart) {
                     Intent intent1 = new Intent(DeliveryMenuPage.this, cart_details.class);
