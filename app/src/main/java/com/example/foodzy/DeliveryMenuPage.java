@@ -242,9 +242,6 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
         userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.peach_smoothie, "Peach Smoothie", 1));
         userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.raspberry_smoothie, "Rhubarb Bellini Smoothie", 100));
         userListMenuBeverages.add(new DeliveryMenuOptionsModal(R.drawable.turquoise_tonic, " Turquoise Tonic", 100));
-
-
-
     }
     private void initRecyclerViewMenuBeverages() {
         recyclerViewMenuBeverages = findViewById(R.id.foodPlateBeverages);

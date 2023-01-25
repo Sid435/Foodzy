@@ -38,8 +38,7 @@ public class uploadDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_details);
 
-
-        name = findViewById(R.id.username); phone = findViewById(R.id.phone);
+        phone = findViewById(R.id.phone);
         mail = findViewById(R.id.mail); pass= findViewById(R.id.pass); gender = findViewById(R.id.gender);
         submit = findViewById(R.id.submit);
 
@@ -102,16 +101,4 @@ public class uploadDetails extends AppCompatActivity {
             }
         });
     }
-//    private void regis(String mail2, String pass2){
-//        auth.createUserWithEmailAndPassword(mail2, pass2).addOnCompleteListener(uploadDetails.this, new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                if(task.isSuccessful()){
-//                    Toast.makeText(uploadDetails.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
-//                }else{
-//                    Toast.makeText(uploadDetails.this, "failed", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//    }
 }
