@@ -102,6 +102,7 @@ public class MenuOptionsAdaptor extends RecyclerView.Adapter<MenuOptionsAdaptor.
                             cart_ItemName.add(textViewFoodName.getText().toString());
                             cart_ItemQuantity.add(textViewQuantity.getText().toString());
                             cart_ItemPrice.add(textViewPrice.getText().toString());
+                            //textview
                         }
 
                         Toast.makeText(context, "Added to the order", Toast.LENGTH_SHORT).show();
