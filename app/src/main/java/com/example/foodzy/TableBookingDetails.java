@@ -7,6 +7,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -34,6 +35,8 @@ public class TableBookingDetails extends AppCompatActivity {
     Button b;
     final int UPI_PAYMENT=0;
     String txid="";
+    public static String BOOKED_TABLE = "bookATable";
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -149,11 +152,10 @@ public class TableBookingDetails extends AppCompatActivity {
             String status = "";
             String approvalRefNo = "";
             String response[] = str.split("&");
-            //response = [txnid, responsecode, status,ref]
+
             for (int i=0;i<response.length;i++)
             {
                 String equalStr[] = response[i].split("=");
-                //equalstr = [responsecode,code]
 
                 if (equalStr.length>=2)
                 {
@@ -207,11 +209,23 @@ public class TableBookingDetails extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference("CAPACITY").child(s2).setValue(Integer.toString(x[0] + 1));
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED)
+                    if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                         sendSMS();
+                        SharedPreferences sharedPreferences = getSharedPreferences(TableBookingDetails.BOOKED_TABLE, 0);
+                        SharedPreferences.Editor editor_a = sharedPreferences.edit();
+
+                        editor_a.putBoolean("hasBookedTable", true);
+                        editor_a.commit();
+                    }
+
                     else {
                         requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
                         sendSMS();
+                        SharedPreferences sharedPreferences = getSharedPreferences(logInPage.PREFS_NAME, 0);
+                        SharedPreferences.Editor editor_a = sharedPreferences.edit();
+
+                        editor_a.putBoolean("hasBookedTable", true);
+                        editor_a.commit();
                     }
                 }
 

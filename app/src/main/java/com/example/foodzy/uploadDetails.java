@@ -42,10 +42,6 @@ public class uploadDetails extends AppCompatActivity {
         mail = findViewById(R.id.mail); pass= findViewById(R.id.pass); gender = findViewById(R.id.gender);
         submit = findViewById(R.id.submit);
 
-        //fire base
-
-
-        // getting radio option
 
         int selectedId = gender.getCheckedRadioButtonId();
         genderradioButton = (RadioButton) findViewById(selectedId);
