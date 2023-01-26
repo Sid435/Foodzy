@@ -229,50 +229,50 @@ public class cart_details extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    private ArrayList<String> loadList1() {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("name1",MODE_PRIVATE);
-        Gson gson1 = new Gson();
-        String json1 = sharedPreferences.getString("NAME","");
-        Type type1 = new TypeToken<ArrayList<String>>(){
-
-        }.getType();
-
-        nameList = gson1.fromJson(json1,type1);
-        return nameList;
-    }
-    private ArrayList<String> loadList2() {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("price1",MODE_PRIVATE);
-        Gson gson2 = new Gson();
-        String json2 = sharedPreferences.getString("PRICE","");
-        Type type2 = new TypeToken<ArrayList<String>>(){
-
-        }.getType();
-
-        priceList = gson2.fromJson(json2,type2);
-        return priceList;
-    }
-    private ArrayList<String> loadList3() {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("cross1",MODE_PRIVATE);
-        Gson gson3 = new Gson();
-        String json3 = sharedPreferences.getString("CROSS","");
-        Type type3 = new TypeToken<ArrayList<String>>(){
-
-        }.getType();
-
-        crossList = gson3.fromJson(json3,type3);
-        return crossList;
-    }
-    private ArrayList<String> loadList4() {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("quantity1",MODE_PRIVATE);
-        Gson gson4 = new Gson();
-        String json4 = sharedPreferences.getString("QUANTITY","");
-        Type type4 = new TypeToken<ArrayList<String>>(){
-
-        }.getType();
-
-        quantityList = gson4.fromJson(json4,type4);
-        return quantityList;
-    }
+//    private ArrayList<String> loadList1() {
+//        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("name1",MODE_PRIVATE);
+//        Gson gson1 = new Gson();
+//        String json1 = sharedPreferences.getString("NAME","");
+//        Type type1 = new TypeToken<ArrayList<String>>(){
+//
+//        }.getType();
+//
+//        nameList = gson1.fromJson(json1,type1);
+//        return nameList;
+//    }
+//    private ArrayList<String> loadList2() {
+//        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("price1",MODE_PRIVATE);
+//        Gson gson2 = new Gson();
+//        String json2 = sharedPreferences.getString("PRICE","");
+//        Type type2 = new TypeToken<ArrayList<String>>(){
+//
+//        }.getType();
+//
+//        priceList = gson2.fromJson(json2,type2);
+//        return priceList;
+//    }
+//    private ArrayList<String> loadList3() {
+//        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("cross1",MODE_PRIVATE);
+//        Gson gson3 = new Gson();
+//        String json3 = sharedPreferences.getString("CROSS","");
+//        Type type3 = new TypeToken<ArrayList<String>>(){
+//
+//        }.getType();
+//
+//        crossList = gson3.fromJson(json3,type3);
+//        return crossList;
+//    }
+//    private ArrayList<String> loadList4() {
+//        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("quantity1",MODE_PRIVATE);
+//        Gson gson4 = new Gson();
+//        String json4 = sharedPreferences.getString("QUANTITY","");
+//        Type type4 = new TypeToken<ArrayList<String>>(){
+//
+//        }.getType();
+//
+//        quantityList = gson4.fromJson(json4,type4);
+//        return quantityList;
+//    }
 
 
 }

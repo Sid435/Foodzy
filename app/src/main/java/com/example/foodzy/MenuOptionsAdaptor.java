@@ -118,17 +118,17 @@ public class MenuOptionsAdaptor extends RecyclerView.Adapter<MenuOptionsAdaptor.
 
                             }
                         });
-                        if (cart_ItemName.contains(textViewFoodName.getText().toString())){
-                            int index = cart_ItemName.indexOf(textViewFoodName.getText().toString());
-                            cart_ItemQuantity.set(index, cart_ItemQuantity.get(index) + Integer.parseInt(textViewQuantity.getText().toString()));
-                            //
-                        }
-                        else
-                        {
-                            cart_ItemName.add(textViewFoodName.getText().toString());
-                            cart_ItemQuantity.add(textViewQuantity.getText().toString());
-                            cart_ItemPrice.add(textViewPrice.getText().toString());
-                        }
+//                        if (cart_ItemName.contains(textViewFoodName.getText().toString())){
+//                            int index = cart_ItemName.indexOf(textViewFoodName.getText().toString());
+//                            cart_ItemQuantity.set(index, cart_ItemQuantity.get(index) + Integer.parseInt(textViewQuantity.getText().toString()));
+//                            //
+//                        }
+//                        else
+//                        {
+//                            cart_ItemName.add(textViewFoodName.getText().toString());
+//                            cart_ItemQuantity.add(textViewQuantity.getText().toString());
+//                            cart_ItemPrice.add(textViewPrice.getText().toString());
+//                        }
 //                        if (cart_ItemName.contains(textViewFoodName.getText().toString())){
 //                            int index = cart_ItemName.indexOf(textViewFoodName.getText().toString());
 //                            cart_ItemQuantity.set(index, cart_ItemQuantity.get(index) + Integer.parseInt(textViewQuantity.getText().toString()));
@@ -142,7 +142,7 @@ public class MenuOptionsAdaptor extends RecyclerView.Adapter<MenuOptionsAdaptor.
 //                        }
 
                         Toast.makeText(context, "Added to the order", Toast.LENGTH_SHORT).show();
-                        saveList();
+//                        saveList();
                         System.out.println(cart_ItemName.size());
                     }
                 });
@@ -153,33 +153,33 @@ public class MenuOptionsAdaptor extends RecyclerView.Adapter<MenuOptionsAdaptor.
             }
         });
     }
-    public void saveList(){
-
-        SharedPreferences sharedPreferences1 = context.getApplicationContext().getSharedPreferences("name1",Context.MODE_PRIVATE);
-        SharedPreferences sharedPreferences2 = context.getApplicationContext().getSharedPreferences("price1",Context.MODE_PRIVATE);
-        SharedPreferences sharedPreferences3 = context.getApplicationContext().getSharedPreferences("cross1",Context.MODE_PRIVATE);
-        SharedPreferences sharedPreferences4 = context.getApplicationContext().getSharedPreferences("quantity1",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor1 = sharedPreferences1.edit();
-        SharedPreferences.Editor editor2 = sharedPreferences2.edit();
-        SharedPreferences.Editor editor3 = sharedPreferences3.edit();
-        SharedPreferences.Editor editor4 = sharedPreferences4.edit();
-        Gson gson1 = new Gson();
-        String json1 = gson1.toJson(cart_ItemName);
-        editor1.putString("NAME",json1);
-        editor1.apply();
-        Gson gson2 = new Gson();
-        String json2 = gson2.toJson(cart_ItemPrice);
-        editor2.putString("PRICE",json2);
-        editor2.apply();
-        Gson gson3 = new Gson();
-        String json3 = gson3.toJson(cart_cross);
-        editor3.putString("CROSS",json3);
-        editor3.apply();
-        Gson gson4 = new Gson();
-        String json4 = gson4.toJson(cart_ItemQuantity);
-        editor4.putString("QUANTITY",json4);
-        editor4.apply();
-    }
+//    public void saveList(){
+////
+//        SharedPreferences sharedPreferences1 = context.getApplicationContext().getSharedPreferences("name1",Context.MODE_PRIVATE);
+//        SharedPreferences sharedPreferences2 = context.getApplicationContext().getSharedPreferences("price1",Context.MODE_PRIVATE);
+//        SharedPreferences sharedPreferences3 = context.getApplicationContext().getSharedPreferences("cross1",Context.MODE_PRIVATE);
+//        SharedPreferences sharedPreferences4 = context.getApplicationContext().getSharedPreferences("quantity1",Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor1 = sharedPreferences1.edit();
+//        SharedPreferences.Editor editor2 = sharedPreferences2.edit();
+//        SharedPreferences.Editor editor3 = sharedPreferences3.edit();
+//        SharedPreferences.Editor editor4 = sharedPreferences4.edit();
+//        Gson gson1 = new Gson();
+//        String json1 = gson1.toJson(cart_ItemName);
+//        editor1.putString("NAME",json1);
+//        editor1.apply();
+//        Gson gson2 = new Gson();
+//        String json2 = gson2.toJson(cart_ItemPrice);
+//        editor2.putString("PRICE",json2);
+//        editor2.apply();
+//        Gson gson3 = new Gson();
+//        String json3 = gson3.toJson(cart_cross);
+//        editor3.putString("CROSS",json3);
+//        editor3.apply();
+//        Gson gson4 = new Gson();
+//        String json4 = gson4.toJson(cart_ItemQuantity);
+//        editor4.putString("QUANTITY",json4);
+//        editor4.apply();
+//    }
 
     @Override
     public int getItemCount() {
