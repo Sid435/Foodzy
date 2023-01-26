@@ -125,7 +125,17 @@ public class homePage extends AppCompatActivity {
         dineIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(homePage.this, menu.class);
+                SharedPreferences sharedPreferences = getSharedPreferences(TableBookingDetails.BOOKED_TABLE, 0);
+                boolean hasBookedTable = sharedPreferences.getBoolean("hasBookedTable", false);
+
+                Intent intent;
+                
+                if(hasBookedTable){
+                    intent = new Intent(homePage.this, menu.class);
+                }else{
+                    Toast.makeText(homePage.this, "Please Book a Table first", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(homePage.this, TableBooking.class);
+                }
                 startActivity(intent);
             }
         });
