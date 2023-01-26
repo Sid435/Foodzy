@@ -13,6 +13,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -26,6 +31,8 @@ public class MenuOptionsAdaptor extends RecyclerView.Adapter<MenuOptionsAdaptor.
     public ArrayList<String> cart_ItemPrice = new ArrayList();
     public ArrayList<String> cart_cross = new ArrayList();
     public ArrayList<String> cart_ItemQuantity = new ArrayList();
+
+    DatabaseReference ref3;
 
     public MenuOptionsAdaptor(List<MenuOptionsModal> userList, Context context) {
         UserList = userList;
@@ -93,17 +100,46 @@ public class MenuOptionsAdaptor extends RecyclerView.Adapter<MenuOptionsAdaptor.
                 addToOrder.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        ref3 = FirebaseDatabase.getInstance().getReference().child("DINEIN_CART");
+                        ref3.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.hasChild(text.toUpperCase())){
+                                    ref3.child(text.toUpperCase()).setValue(textViewQuantity.getText().toString());
+                                }
+                                else{
+                                    ref3.child(text.toString());
+                                    ref3.child(text.toString()).setValue(textViewQuantity.getText().toString());
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                         if (cart_ItemName.contains(textViewFoodName.getText().toString())){
                             int index = cart_ItemName.indexOf(textViewFoodName.getText().toString());
                             cart_ItemQuantity.set(index, cart_ItemQuantity.get(index) + Integer.parseInt(textViewQuantity.getText().toString()));
+                            //
                         }
                         else
                         {
                             cart_ItemName.add(textViewFoodName.getText().toString());
                             cart_ItemQuantity.add(textViewQuantity.getText().toString());
                             cart_ItemPrice.add(textViewPrice.getText().toString());
-                            //textview
                         }
+//                        if (cart_ItemName.contains(textViewFoodName.getText().toString())){
+//                            int index = cart_ItemName.indexOf(textViewFoodName.getText().toString());
+//                            cart_ItemQuantity.set(index, cart_ItemQuantity.get(index) + Integer.parseInt(textViewQuantity.getText().toString()));
+//                        }
+//                        else
+//                        {
+//                            cart_ItemName.add(textViewFoodName.getText().toString());
+//                            cart_ItemQuantity.add(textViewQuantity.getText().toString());
+//                            cart_ItemPrice.add(textViewPrice.getText().toString());
+//                            //textview
+//                        }
 
                         Toast.makeText(context, "Added to the order", Toast.LENGTH_SHORT).show();
                         saveList();

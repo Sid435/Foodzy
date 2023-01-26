@@ -13,11 +13,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -34,6 +40,8 @@ public class cart_details extends AppCompatActivity {
     LinearLayoutManager layoutManager;
     List<itemModel> userlist;
     cartAdapter adapter;
+
+    DatabaseReference ref4;
     final int UPI_PAYMENT=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +51,10 @@ public class cart_details extends AppCompatActivity {
         t2 = findViewById(R.id.textView2);
         t3 = findViewById(R.id.textView3);
         b1 = findViewById(R.id.payButton);
-        f_nameList = loadList1();
-        f_priceList = loadList2();
-        f_crossList = loadList3();
-        f_quantityList = loadList4();
+//        f_nameList = loadList1();
+//        f_priceList = loadList2();
+//        f_crossList = loadList3();
+//        f_quantityList = loadList4();
         initData();
         initRecyclerView();
 
@@ -184,13 +192,31 @@ public class cart_details extends AppCompatActivity {
 
     private void initData() {
         userlist = new ArrayList<>();
-        for (int i=0;i<f_nameList.size();i++) {
-            Double f1 = Double.parseDouble(f_priceList.get(i)) * Double.parseDouble(f_quantityList.get(i));
-            String f2 = f1.toString();
-            final_CARTprice += Double.parseDouble(f2);
-            userlist.add(new itemModel(f_nameList.get(i), f_priceList.get(i), "X", f_quantityList.get(i), f2));
+        try {
+            ref4 = FirebaseDatabase.getInstance().getReference("DINEIN_CART");
+            ref4.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        String m = ds.getKey();
+                        String n = ds.getValue().toString();
+                        int a = 100 * Integer.parseInt(n);
+                        final_CARTprice += a;
+                        System.out.println(m);
+                        System.out.println(n);
+                        itemModel x = new itemModel(m, "100", "X", n, Integer.toString(a));
+                        userlist.add(x);
+                    }
+                    adapter.notifyDataSetChanged();
+                    t3.setText(final_CARTprice.toString());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
         }
-        t3.setText(final_CARTprice.toString());
+        catch (Exception ignored){}
     }
 
     private void initRecyclerView() {
