@@ -147,7 +147,7 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
     private void initDataMenuMainCourse(){
         title.setText("Main Course");
         userListMenuMainCourse = new ArrayList<>();
-        userListMenuMainCourse.add(new MenuOptionsModal(R.drawable.chicken_shashlic, "Chicken Shashlic", 100));
+        userListMenuMainCourse.add(new MenuOptionsModal(R.drawable.chicken_shashlic, "Chicken Shashlic", 100.00));
         userListMenuMainCourse.add(new MenuOptionsModal(R.drawable.malai_kofta, "Malai Kofta", 100));
         userListMenuMainCourse.add(new MenuOptionsModal(R.drawable.palak_paneer, "Palak Paneer", 100));
         userListMenuMainCourse.add(new MenuOptionsModal(R.drawable.saag_aloo, "Saag Aloo", 100));

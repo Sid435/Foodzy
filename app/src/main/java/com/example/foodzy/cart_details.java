@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,16 +33,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class cart_details extends AppCompatActivity {
-    public TextView head,t2,t3;
+    public TextView head,t2,t3,t35,t33;
     public Button b1;
     public ArrayList<String> nameList,f_nameList,priceList,f_priceList,crossList,f_crossList,quantityList,f_quantityList,final_priceList;
     RecyclerView recyclerView;
     Double final_CARTprice = 0.0;
+    Double final_CARTprice_final = 0.0;
     LinearLayoutManager layoutManager;
     List<itemModel> userlist;
     cartAdapter adapter;
 
-    DatabaseReference ref4;
+    public ImageView refresh;
+
+    DatabaseReference ref4,ref8,ref123;
     final int UPI_PAYMENT=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,9 @@ public class cart_details extends AppCompatActivity {
         t2 = findViewById(R.id.textView2);
         t3 = findViewById(R.id.textView3);
         b1 = findViewById(R.id.payButton);
+        t35 = findViewById(R.id.textView35);
+        t33 =  findViewById(R.id.textView33);
+        refresh = findViewById(R.id.imageView8);
 //        f_nameList = loadList1();
 //        f_priceList = loadList2();
 //        f_crossList = loadList3();
@@ -61,7 +68,60 @@ public class cart_details extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                payusingupi("Name","VRPFOODBOX@sc","", final_CARTprice.toString());
+                try {
+                    ref123 = FirebaseDatabase.getInstance().getReference("DINEIN_CART");
+                    ref123.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                String n = ds.getValue().toString();
+                                double a = 100.00 * Integer.parseInt(n);
+                                final_CARTprice_final += a;
+                                System.out.println(final_CARTprice_final);
+                            }
+                            t3.setText("Rs. " + final_CARTprice_final);
+                            t33.setText("Rs. " + (0.18*final_CARTprice_final + 40));
+                            t35.setText("Rs. " + (0.18*final_CARTprice_final + 40 + final_CARTprice_final));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                }
+                catch (Exception e){
+                    Toast.makeText(cart_details.this, "chutiya", Toast.LENGTH_SHORT).show();
+                }
+                payusingupi("Name","VRPFOODBOX@sc","", final_CARTprice_final.toString());
+            }
+        });
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    ref8 = FirebaseDatabase.getInstance().getReference("DINEIN_CART");
+                    ref8.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            double refreshed_price=0.0;
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                String n = ds.getValue().toString();
+                                double a = 100.00 * Integer.parseInt(n);
+                                refreshed_price += a;
+                            }
+//                            adapter.notifyDataSetChanged();
+                            t3.setText("Rs. " + refreshed_price);
+                            t33.setText("Rs. " + (0.18*refreshed_price + 40));
+                            t35.setText("Rs. " + (0.18*refreshed_price + 40 + refreshed_price));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                }
+                catch (Exception ignored){}
             }
         });
 
@@ -200,15 +260,17 @@ public class cart_details extends AppCompatActivity {
                     for (DataSnapshot ds : snapshot.getChildren()) {
                         String m = ds.getKey();
                         String n = ds.getValue().toString();
-                        int a = 100 * Integer.parseInt(n);
+                        double a = 100.00 * Integer.parseInt(n);
                         final_CARTprice += a;
                         System.out.println(m);
                         System.out.println(n);
-                        itemModel x = new itemModel(m, "100", "X", n, Integer.toString(a));
+                        itemModel x = new itemModel(m, "Rs. 100.0",  n,"Rs. " +  Double.toString(a));
                         userlist.add(x);
                     }
                     adapter.notifyDataSetChanged();
-                    t3.setText(final_CARTprice.toString());
+                    t3.setText("Rs. " + final_CARTprice);
+                    t33.setText("Rs. " + (0.18*final_CARTprice + 40));
+                    t35.setText("Rs. " + (0.18*final_CARTprice + 40 + final_CARTprice));
                 }
 
                 @Override

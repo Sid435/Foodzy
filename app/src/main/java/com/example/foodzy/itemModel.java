@@ -2,15 +2,15 @@ package com.example.foodzy;
 public class itemModel {
     private String name;
     private String price;
-    private String cross;
+//    private String cross;
     private String quantity;
     private String fprice;
 
 
-    itemModel(String name, String price, String cross, String quantity, String fprice){
+    itemModel(String name, String price, String quantity, String fprice){
         this.name = name;
         this.price = price;
-        this.cross = cross;
+//        this.cross = cross;
         this.quantity = quantity;
         this.fprice = fprice;
     }
@@ -23,9 +23,9 @@ public class itemModel {
         return price;
     }
 
-    public String getCross() {
-        return cross;
-    }
+//    public String getCross() {
+//        return cross;
+//    }
 
     public String getQuantity() {
         return quantity;
