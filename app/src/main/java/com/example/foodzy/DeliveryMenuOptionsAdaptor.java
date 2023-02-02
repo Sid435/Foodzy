@@ -13,6 +13,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -20,6 +25,7 @@ import java.util.List;
 
 public class DeliveryMenuOptionsAdaptor extends RecyclerView.Adapter<DeliveryMenuOptionsAdaptor.ViewHolder> {
     private List<DeliveryMenuOptionsModal> UserList;
+    DatabaseReference ref3;
     private Context context;
     private Class<DeliveryMenuPage> mainActivity = DeliveryMenuPage.class;
     public ArrayList<String> cart_ItemName = new ArrayList();
@@ -93,21 +99,29 @@ public class DeliveryMenuOptionsAdaptor extends RecyclerView.Adapter<DeliveryMen
                 addToOrder.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (cart_ItemName.contains(textViewFoodName.getText().toString())){
-                            int index = cart_ItemName.indexOf(textViewFoodName.getText().toString());
-                            cart_ItemQuantity.set(index, cart_ItemQuantity.get(index) + Integer.parseInt(textViewQuantity.getText().toString()));
-                        }
-                        else
-                        {
-                            cart_ItemName.add(textViewFoodName.getText().toString());
-                            cart_ItemQuantity.add(textViewQuantity.getText().toString());
-                            cart_ItemPrice.add(textViewPrice.getText().toString());
-                        }
+                        ref3 = FirebaseDatabase.getInstance().getReference().child("DELIVERY_CART");
+                        ref3.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.hasChild(text.toUpperCase())){
+                                    ref3.child(text.toUpperCase()).setValue(textViewQuantity.getText().toString());
+                                }
+                                else{
+                                    ref3.child(text.toString());
+                                    ref3.child(text.toString()).setValue(textViewQuantity.getText().toString());
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
 
                         Toast.makeText(context, "Added to the order", Toast.LENGTH_SHORT).show();
-                        saveList();
-                        System.out.println(cart_ItemName.size());
                     }
+
                 });
                 dialogboxImage.setImageResource(resource);
                 builder.setView(dialogView);

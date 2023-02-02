@@ -3,15 +3,13 @@ package com.example.foodzy;
 public class DeliveryitemModel {
     private String name;
     private String price;
-    private String cross;
     private String quantity;
     private String fprice;
 
 
-    DeliveryitemModel(String name, String price, String cross, String quantity, String fprice){
+    DeliveryitemModel(String name, String price, String quantity, String fprice){
         this.name = name;
         this.price = price;
-        this.cross = cross;
         this.quantity = quantity;
         this.fprice = fprice;
     }
@@ -24,9 +22,6 @@ public class DeliveryitemModel {
         return price;
     }
 
-    public String getCross() {
-        return cross;
-    }
 
     public String getQuantity() {
         return quantity;

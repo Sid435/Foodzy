@@ -14,11 +14,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -34,12 +40,14 @@ public class Deliverycart_details extends AppCompatActivity {
     public ArrayList<String> nameList,f_nameList,priceList,f_priceList,crossList,f_crossList,quantityList,f_quantityList,final_priceList;
     RecyclerView recyclerView;
     Double final_CARTprice = 0.0;
+
     LinearLayoutManager layoutManager;
     List<DeliveryitemModel> userlist;
     DeliverycartAdapter adapter;
     SharedPreferences.Editor editor ;
     boolean Delivery_location_taken_frm_map,Delivery_location_taken;
     LinearLayout layout;
+    DatabaseReference ref4,ref123,ref560;
     final int UPI_PAYMENT=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +69,7 @@ public class Deliverycart_details extends AppCompatActivity {
         editor = sp.edit();
         initData();
         initRecyclerView();
+
 
         final_delivery_address = sp.getString("final delivery address","");
         final_delivery_address_from_map = sp.getString("final delivery address from map","");
@@ -87,6 +96,30 @@ public class Deliverycart_details extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    Toast.makeText(Deliverycart_details.this, "pressed", Toast.LENGTH_SHORT).show();
+                    ref560 = FirebaseDatabase.getInstance().getReference("DELIVERY_CART");
+                    ref560.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            Double final_CARTprice_final=0.0;
+
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                String n = ds.getValue().toString();
+                                double a = 100.00 * Integer.parseInt(n);
+                                final_CARTprice_final += a;
+                            }
+                            t3.setText("Rs. " + final_CARTprice_final);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                }
+                catch (Exception e){
+                    Toast.makeText(Deliverycart_details.this, "error", Toast.LENGTH_SHORT).show();
+                }
                 if (Delivery_location_taken || Delivery_location_taken_frm_map){
                     payusingupi("Name","VRPFOODBOX@sc","", final_CARTprice.toString());
                 }
@@ -231,13 +264,31 @@ public class Deliverycart_details extends AppCompatActivity {
 
     private void initData() {
         userlist = new ArrayList<>();
-        for (int j=0;j<f_nameList.size();j++) {
-            Double f1 = Double.parseDouble(f_priceList.get(j)) * Double.parseDouble(f_quantityList.get(j));
-            String f2 = f1.toString();
-            final_CARTprice += Double.parseDouble(f2);
-            userlist.add(new DeliveryitemModel(f_nameList.get(j), f_priceList.get(j), "X", f_quantityList.get(j), f2));
+        try {
+            ref4 = FirebaseDatabase.getInstance().getReference("DELIVERY_CART");
+            ref4.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        String m = ds.getKey();
+                        String n = ds.getValue().toString();
+                        double a = 100.00 * Integer.parseInt(n);
+                        final_CARTprice += a;
+                        System.out.println(m);
+                        System.out.println(n);
+                        DeliveryitemModel x = new DeliveryitemModel(m, "Rs. 100.0",  n,"Rs. " +  Double.toString(a));
+                        userlist.add(x);
+                    }
+                    adapter.notifyDataSetChanged();
+                    t3.setText("Rs. " + final_CARTprice);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
         }
-        t3.setText(final_CARTprice.toString());
+        catch (Exception ignored){}
     }
 
     private void initRecyclerView() {
