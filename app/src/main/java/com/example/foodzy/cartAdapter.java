@@ -102,9 +102,6 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.ViewHolder> {
                     });
                 }
 
-                if (holder.t4.getText().toString().equals("0")){
-
-                }
 
             }
         });
@@ -121,7 +118,6 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView t1;
         private TextView t2;
-        private TextView t3;
         private TextView t4;
         private TextView t5;
 
@@ -134,7 +130,6 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.ViewHolder> {
 
             t1 = itemView.findViewById(R.id.item_name);
             t2 = itemView.findViewById(R.id.item_price);
-//            t3 = itemView.findViewById(R.id.cross);
             t4 = itemView.findViewById(R.id.item_quantity);
             t5 = itemView.findViewById(R.id.final_price);
             b1 = itemView.findViewById(R.id.idButtonIncrement);
@@ -143,7 +138,6 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.ViewHolder> {
         public void setData(String p_name, String p_price, String p_quantity, String p_fprice) {
             t1.setText(p_name);
             t2.setText(p_price);
-//            t3.setText(p_cross);
             t4.setText(p_quantity);
             t5.setText(p_fprice);
         }

@@ -118,28 +118,7 @@ public class MenuOptionsAdaptor extends RecyclerView.Adapter<MenuOptionsAdaptor.
 
                             }
                         });
-//                        if (cart_ItemName.contains(textViewFoodName.getText().toString())){
-//                            int index = cart_ItemName.indexOf(textViewFoodName.getText().toString());
-//                            cart_ItemQuantity.set(index, cart_ItemQuantity.get(index) + Integer.parseInt(textViewQuantity.getText().toString()));
-//                            //
-//                        }
-//                        else
-//                        {
-//                            cart_ItemName.add(textViewFoodName.getText().toString());
-//                            cart_ItemQuantity.add(textViewQuantity.getText().toString());
-//                            cart_ItemPrice.add(textViewPrice.getText().toString());
-//                        }
-//                        if (cart_ItemName.contains(textViewFoodName.getText().toString())){
-//                            int index = cart_ItemName.indexOf(textViewFoodName.getText().toString());
-//                            cart_ItemQuantity.set(index, cart_ItemQuantity.get(index) + Integer.parseInt(textViewQuantity.getText().toString()));
-//                        }
-//                        else
-//                        {
-//                            cart_ItemName.add(textViewFoodName.getText().toString());
-//                            cart_ItemQuantity.add(textViewQuantity.getText().toString());
-//                            cart_ItemPrice.add(textViewPrice.getText().toString());
-//                            //textview
-//                        }
+
 
                         Toast.makeText(context, "Added to the order", Toast.LENGTH_SHORT).show();
 //                        saveList();

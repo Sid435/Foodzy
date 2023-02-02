@@ -89,9 +89,9 @@ public class cart_details extends AppCompatActivity {
                         }
                     });
                 }
-                catch (Exception e){
-                    Toast.makeText(cart_details.this, "chutiya", Toast.LENGTH_SHORT).show();
-                }
+                catch (Exception ignored){}
+
+
                 payusingupi("Name","VRPFOODBOX@sc","", final_CARTprice_final.toString());
             }
         });
