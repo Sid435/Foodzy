@@ -19,6 +19,11 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,13 +47,16 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
             adaptorMenuDesert, adaptorMenuBeverages;
     CategoryOptionAdaptor adaptorCategory;
     FloatingActionButton f1;
-    private TextView title;
+    private TextView title,t37;
+
+    DatabaseReference ref120;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         title = findViewById(R.id.idTVFoodtype);
         f1 = findViewById(R.id.floatingActionButton);
+        t37 = findViewById(R.id.textView37);
 
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
@@ -117,6 +125,20 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
         initDataMenuBeverages();
         initRecyclerViewMenuBeverages();
 
+        ref120 = FirebaseDatabase.getInstance().getReference().child("DINEIN_CART");
+        ref120.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String x = String.valueOf(snapshot.getChildrenCount());
+                t37.setText(x);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         f1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,6 +149,7 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
 
     }
     private void initDataCategory() {
+        System.out.println("reloaded");
         userListCategory = new ArrayList<>();
         userListCategory.add(new CategoryOptionModal(R.drawable.main_course, "Main Course"));
         userListCategory.add(new CategoryOptionModal(R.drawable.appetizers, "Appetizers"));
