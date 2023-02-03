@@ -121,7 +121,7 @@ public class Deliverycart_details extends AppCompatActivity {
                     Toast.makeText(Deliverycart_details.this, "error", Toast.LENGTH_SHORT).show();
                 }
                 if (Delivery_location_taken || Delivery_location_taken_frm_map){
-                    payusingupi("Name","VRPFOODBOX@sc","", final_CARTprice.toString());
+                    payusingupi("Name","paytm-27619993@paytm","", final_CARTprice.toString());
                 }
                 else {
                     Toast.makeText(Deliverycart_details.this, "Select delivery location", Toast.LENGTH_SHORT).show();

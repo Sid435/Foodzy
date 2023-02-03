@@ -73,7 +73,7 @@ public class TableBookingDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                payusingupi(t7.getText().toString(), "VRPFOODBOX@sc", "", t14.getText().toString());
+                payusingupi(t7.getText().toString(), "paytm-27619993@paytm", "", t14.getText().toString());
 
 
                 Toast.makeText(TableBookingDetails.this, "PAYMENT IN PROCESS...", Toast.LENGTH_SHORT).show();

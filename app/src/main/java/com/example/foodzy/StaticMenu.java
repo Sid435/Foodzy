@@ -1,4 +1,5 @@
 package com.example.foodzy;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -31,9 +32,9 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
             layoutManagerMenuEntree, layoutManagerMenuDesert,
             layoutManagerMenuBeverages;
     private LinearLayoutManager layoutManagerCategory;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    Toolbar toolbarAppbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbarAppbar;
     private List<StaticMenuOptionsModal> userListMenuMainCourse, userListMenuAppetizers,
             userListMenuEntree, userListMenuDesert, userListMenuBeverages;
     private List<StaticCategoryOptionModal> userListCategory ;
@@ -75,7 +76,6 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                 } else if (id == R.id.idNavSignOut) {
                     SharedPreferences sharedPreferences = getSharedPreferences(logInPage.PREFS_NAME, 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-
                     editor.putBoolean("hasLoggedIn", false);
                     editor.commit();
 
@@ -87,6 +87,7 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                 }else if(id == R.id.idLodging){
                     Intent intent3 = new Intent(StaticMenu.this, LodgingActivity.class);
                     startActivity(intent3);
+
                 } else {
                     Toast.makeText(StaticMenu.this, "No Correct Input", Toast.LENGTH_SHORT).show();
                 }
@@ -96,7 +97,6 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                 return true;
             }
         });
-
 
         initDataCategory();
         initRecyclerViewCategory();
@@ -120,6 +120,7 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
 
     private void initDataCategory() {
         userListCategory = new ArrayList<>();
+
         userListCategory.add(new StaticCategoryOptionModal(R.drawable.main_course, "Main Course"));
         userListCategory.add(new StaticCategoryOptionModal(R.drawable.appetizers, "Appetizers"));
         userListCategory.add(new StaticCategoryOptionModal(R.drawable.entres, "Entrées"));
@@ -139,6 +140,7 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
     private void initDataMenuMainCourse(){
         title.setText("Main Course");
         userListMenuMainCourse = new ArrayList<>();
+
         userListMenuMainCourse.add(new StaticMenuOptionsModal(R.drawable.chicken_shashlic, "Chicken Shashlic", 100,R.drawable.unfilled_star, ""));
         userListMenuMainCourse.add(new StaticMenuOptionsModal(R.drawable.malai_kofta, "Malai Kofta", 100,R.drawable.unfilled_star, ""));
         userListMenuMainCourse.add(new StaticMenuOptionsModal(R.drawable.palak_paneer, "Palak Paneer", 100,R.drawable.unfilled_star, ""));
@@ -164,11 +166,11 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
     private void initDataMenuAppetizers() {
         title.setText("Appetizers");
         userListMenuAppetizers = new ArrayList<>();
+
         userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.appetizers, "Crescents", 100,R.drawable.unfilled_star, ""));
         userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.canapes, "Canapes", 100,R.drawable.unfilled_star, ""));
         userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.stuffed_samosa, "Stuffed Samosa", 100,R.drawable.unfilled_star, ""));
         userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.pita_chips, "Pita Chips", 100,R.drawable.unfilled_star, ""));
-
         userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.chilli_paneer, "Chilli Paneer", 100,R.drawable.unfilled_star, ""));
         userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.medu_vada, "Medu Vada", 100,R.drawable.unfilled_star, ""));
         userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.stuffed_mashrooms, "Stuffed Mushroom", 100,R.drawable.unfilled_star, ""));
