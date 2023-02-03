@@ -180,6 +180,11 @@ public class TableBookingDetails extends AppCompatActivity {
             {
                 Toast.makeText(this, "Transaction Successful", Toast.LENGTH_SHORT).show();
 
+                SharedPreferences sharedPreferences = getSharedPreferences(TableBookingDetails.BOOKED_TABLE, 0);
+                SharedPreferences.Editor editor_a = sharedPreferences.edit();
+                editor_a.putBoolean("hasBookedTable", true);
+                editor_a.commit();
+
                 Intent t = getIntent();
                 String s1 = t.getStringExtra("name").toUpperCase(Locale.ROOT);
                 String s2 = t.getStringExtra("sqsize");
@@ -211,21 +216,11 @@ public class TableBookingDetails extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                         sendSMS();
-                        SharedPreferences sharedPreferences = getSharedPreferences(TableBookingDetails.BOOKED_TABLE, 0);
-                        SharedPreferences.Editor editor_a = sharedPreferences.edit();
-
-                        editor_a.putBoolean("hasBookedTable", true);
-                        editor_a.commit();
                     }
 
                     else {
                         requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
                         sendSMS();
-                        SharedPreferences sharedPreferences = getSharedPreferences(logInPage.PREFS_NAME, 0);
-                        SharedPreferences.Editor editor_a = sharedPreferences.edit();
-
-                        editor_a.putBoolean("hasBookedTable", true);
-                        editor_a.commit();
                     }
                 }
 

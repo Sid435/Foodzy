@@ -129,12 +129,12 @@ public class homePage extends AppCompatActivity {
                 boolean hasBookedTable = sharedPreferences.getBoolean("hasBookedTable", false);
 
                 Intent intent;
-                
+
                 if(hasBookedTable){
                     intent = new Intent(homePage.this, menu.class);
                 }else{
                     Toast.makeText(homePage.this, "Please Book a Table first", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(homePage.this, menu.class);
+                    intent = new Intent(homePage.this, TableBooking.class);
                 }
                 startActivity(intent);
             }
