@@ -4,115 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/diwagoa_staylist_familyterrace_portrait_jpg"
-    tools:context=".LodgingActivity">
+    tools:context=".LodgingActivity"
+    android:background="@drawable/lodging_background">
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="#908972"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:hint="ENTER YOUR NAME"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.157" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="188dp"
         android:layout_height="21dp"
-        android:background="#9E977E"
+        android:background="#FFFFFF"
         android:minHeight="48dp"
-        android:text="FETCH AVAILABILITY"
+        android:text="@string/fetch_availability"
         android:textAlignment="center"
-        android:textColor="#616161"
+        android:textColor="#7E0F02"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.349"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729"
+        app:layout_constraintVertical_bias="0.8"
         tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/editTextTextPostalAddress"
-        android:layout_width="300dp"
-        android:layout_height="51dp"
-        android:background="#908972"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:hint="ENTER YOUR ADDRESS"
         android:inputType="textPostalAddress"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158" />
+        app:layout_constraintVertical_bias="0.373" />
 
     <EditText
         android:id="@+id/editTextPhone"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="#908972"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:hint="ENTER YOUR PHN NO."
         android:inputType="phone"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.399" />
+        app:layout_constraintVertical_bias="0.265" />
 
     <EditText
         android:id="@+id/editTextTime"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="#908972"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
-        android:hint="TIME(24HRS CLOCK)*"
+        android:hint="ENTER TIME(24HRS CLOCK)*"
         android:inputType="time"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635" />
+        app:layout_constraintVertical_bias="0.715" />
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="300dp"
-        android:layout_height="56dp"
+        android:layout_width="222dp"
+        android:layout_height="64dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:background="#908972"
+        android:background="@drawable/edit_text_background"
         android:entries="@array/ROOM_TYPE"
         android:minHeight="48dp"
         android:soundEffectsEnabled="true"
@@ -121,10 +121,10 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintVertical_bias="0.484" />
 
     <Switch
         android:id="@+id/switch1"
@@ -135,30 +135,30 @@
         android:textColor="#131111"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.782"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.789" />
+        app:layout_constraintVertical_bias="0.811" />
 
     <EditText
         android:id="@+id/editTextDate"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:background="#908972"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
-        android:hint="DATE*"
+        android:hint="ENTER DATE"
         android:inputType="date"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintVertical_bias="0.599" />
 
     <TextView
         android:id="@+id/textView"
@@ -188,12 +188,11 @@
         app:layout_constraintVertical_bias="1.0"
         tools:text="INCASE OF SQUAD SIZE CHANGE , RECHECK THE AVAILABILITY" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
         android:layout_width="229dp"
         android:layout_height="52dp"
-        android:background="#D5B27D"
-        android:backgroundTint="#D5B27D"
+        android:background="@drawable/button_with_maroon"
         android:onClick="test"
         android:text="SUBMIT DETAILS"
         android:textAlignment="center"
@@ -202,9 +201,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.877"
+        app:layout_constraintVertical_bias="0.899"
         tools:ignore="TextContrastCheck" />
 
     <TextView
@@ -233,5 +233,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book a Room"
+        android:textColor="@color/white"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

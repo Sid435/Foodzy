@@ -104,15 +104,11 @@ public class LodgingUserDetails extends AppCompatActivity {
 //                        sendSMS();
 //                    }
 //                }
-                payusingupi(t7.getText().toString(), "VRPFOODBOX@sc", "", t14.getText().toString());
+                payusingupi(t7.getText().toString(), "paytm-27619993@paytm", "", t14.getText().toString());
 
                 Toast.makeText(LodgingUserDetails.this, "PAYMENT IN PROCESS...", Toast.LENGTH_SHORT).show();
 
                 // AFTER SUCCESSFUL PAYMENT
-
-
-
-
             }
         });
     }

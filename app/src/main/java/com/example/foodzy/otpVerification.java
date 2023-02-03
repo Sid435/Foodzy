@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 public class otpVerification extends AppCompatActivity {
     private TextView textView;
     private EditText one,two, three, four, five, six;
-    private Button verify;
+    private AppCompatButton verify;
     private AppCompatButton resendOtp1;
     private String backendotp;FirebaseAuth auth;
     @Override
@@ -91,7 +91,7 @@ public class otpVerification extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        "+91" + textView.getText().toString(),
+                        "+91" + getIntent().getStringExtra("mobile"),
                         60,
                         TimeUnit.SECONDS,
                         otpVerification.this,

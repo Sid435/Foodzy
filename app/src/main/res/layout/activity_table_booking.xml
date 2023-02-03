@@ -4,34 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/image_jpeg"
+    android:background="@drawable/table_background"
     tools:context=".TableBooking">
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="#D6B37E"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:hint="ENTER YOUR NAME"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.161" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="188dp"
         android:layout_height="21dp"
-        android:background="#D6B37E"
+        android:background="#FFFFFF"
         android:minHeight="48dp"
         android:text="FETCH AVAILABILITY"
         android:textAlignment="center"
@@ -40,78 +40,78 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintVertical_bias="0.795" />
 
     <EditText
         android:id="@+id/editTextTextPostalAddress"
-        android:layout_width="300dp"
-        android:layout_height="51dp"
-        android:background="#D6B37E"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:hint="ENTER YOUR ADDRESS"
         android:inputType="textPostalAddress"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158" />
+        app:layout_constraintVertical_bias="0.484" />
 
     <EditText
         android:id="@+id/editTextPhone"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="#D6B37E"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:hint="ENTER YOUR PHN NO."
         android:inputType="phone"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.399" />
+        app:layout_constraintVertical_bias="0.269" />
 
     <EditText
         android:id="@+id/editTextTime"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="#D6B37E"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:hint="TIME(24HRS CLOCK)*"
         android:inputType="time"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635" />
+        app:layout_constraintVertical_bias="0.706" />
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="300dp"
-        android:layout_height="56dp"
+        android:layout_width="214dp"
+        android:layout_height="64dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:background="#D6B37E"
+        android:background="@drawable/edit_text_background"
         android:entries="@array/SQUAD_SIZE"
         android:minHeight="48dp"
         android:soundEffectsEnabled="true"
@@ -120,10 +120,10 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintVertical_bias="0.377" />
 
     <Switch
         android:id="@+id/switch1"
@@ -134,30 +134,30 @@
         android:textColor="#131111"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.782"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.789" />
+        app:layout_constraintVertical_bias="0.8" />
 
     <EditText
         android:id="@+id/editTextDate"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:background="#D6B37E"
+        android:layout_width="342dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
-        android:hint="DATE*"
+        android:hint="ENTER DATE"
         android:inputType="date"
         android:minHeight="48dp"
         android:textAlignment="center"
-        android:textColor="#616161"
-        android:textSize="20sp"
+        android:textColor="#7E0F02"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintVertical_bias="0.595" />
 
     <TextView
         android:id="@+id/textView"
@@ -200,10 +200,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899"
+        app:layout_constraintVertical_bias="0.917"
         tools:ignore="TextContrastCheck" />
 
     <TextView
@@ -214,6 +213,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.994"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Book a table"
+        android:textColor="@color/white"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
