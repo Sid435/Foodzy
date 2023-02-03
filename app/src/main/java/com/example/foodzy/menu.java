@@ -35,6 +35,7 @@ public class menu extends AppCompatActivity implements CategoryOptionAdaptor.Cat
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    //ref
     Toolbar toolbarAppbar;
     private GridLayoutManager layoutManagerMenuMainCourse, layoutManagerMenuAppetizers,
             layoutManagerMenuEntree, layoutManagerMenuDesert,
