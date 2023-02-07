@@ -147,7 +147,7 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                 "coriander powder\n" +
                 "red chilli\n" +
                 "onion\n" +
-                "capsicum (green pepper)\n" +
+                "capsicum\n" +
                 "garlic\n" +
                 "black pepper\n" +
                 "tomato\n" +
@@ -172,7 +172,7 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                 "green cardamom\n" +
                 "chili oil\n" +
                 "onion\n"));
-        userListMenuMainCourse.add(new StaticMenuOptionsModal(R.drawable.palak_paneer, "Palak Paneer", 100,R.drawable.unfilled_star, " paneer\n" +
+        userListMenuMainCourse.add(new StaticMenuOptionsModal(R.drawable.palak_paneer, "Palak Paneer", 100,R.drawable.unfilled_star, "paneer\n" +
                 "ghee\n" +
                 "chilli\n" +
                 "onion\n" +
@@ -202,7 +202,7 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                 "vegetable oil\n" +
                 "garam masala powder\n" +
                 "red chilli\n" +
-                "capsicum (green pepper)\n" +
+                "capsicum\n" +
                 "green chilli\n" +
                 "onion\n" +
                 "bell pepper\n" +
