@@ -1,8 +1,11 @@
 package com.example.foodzy;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,10 +25,7 @@ public class StaticMenuOptionsAdaptor extends RecyclerView.Adapter<StaticMenuOpt
     private List<StaticMenuOptionsModal> UserList;
     private Context context;
     private Class<StaticMenu> mainActivity = StaticMenu.class;
-
-    private final List<String> fav = new ArrayList<>();
     DatabaseReference ref1;
-
     public StaticMenuOptionsAdaptor(List<StaticMenuOptionsModal> userList, Context context) {
         UserList = userList;
         this.context = context;
@@ -47,17 +47,16 @@ public class StaticMenuOptionsAdaptor extends RecyclerView.Adapter<StaticMenuOpt
         String text = UserList.get(position).getText();
         String price = String.valueOf(UserList.get(position).getPrice());
         ArrayList <String> a1 = new ArrayList<>();
-        String desc = String.valueOf(UserList.get(position).getDesc().toString());
-        holder.setData(resource, text, price, desc);
+        holder.setData(resource, text, price);
         holder.star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                holder.star.setImageResource(R.drawable.filled_star);
                  ref1 = FirebaseDatabase.getInstance().getReference().child("FAVOURITES");
                 ref1.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.hasChild(text.toUpperCase())){
-                            //remove that child
                             System.out.println("contains");
                             ref1.child(text.toUpperCase()).removeValue();
                         }
@@ -72,10 +71,20 @@ public class StaticMenuOptionsAdaptor extends RecyclerView.Adapter<StaticMenuOpt
 
                     }
                 });
+            }
+        });
 
-
-//                System.out.println(fav);
-
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getRootView().getContext());
+                View dialogView = LayoutInflater.from(v.getRootView().getContext()).inflate(R.layout.static_menu_food_ingridients,null);
+                TextView tv = dialogView.findViewById(R.id.idTVDescription);
+                tv.setText(temp2.getDesc().toString());
+                tv.setMovementMethod(new ScrollingMovementMethod());
+                builder.setView(dialogView);
+                builder.setCancelable(true);
+                builder.show();
             }
         });
     }
@@ -84,29 +93,23 @@ public class StaticMenuOptionsAdaptor extends RecyclerView.Adapter<StaticMenuOpt
     public int getItemCount() {
         return UserList.size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView image;
         private TextView text, price;
         private ImageView star;
-        private TextView desc;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.favImage);
             text = itemView.findViewById(R.id.fav_name);
             price = itemView.findViewById(R.id.fav_price);
             star = itemView.findViewById(R.id.star);
-            desc = itemView.findViewById(R.id.foodDescription);
-
         }
 
-        public void setData(int resource, String text1, String price1, String desc1) {
+        public void setData(int resource, String text1, String price1) {
             image.setImageResource(resource);
             text.setText(text1);
             price.setText(price1);
-            desc.setText(desc1);
         }
 
     }

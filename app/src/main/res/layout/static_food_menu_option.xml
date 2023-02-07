@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="205dp"
-    android:layout_height="400dp"
+    android:layout_height="270dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     app:cardUseCompatPadding="true"
@@ -21,13 +21,14 @@
             android:gravity="center"
             android:id="@+id/idLLFoodImage"
             android:weightSum="3">
+
             <ImageView
                 android:id="@+id/favImage"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
-                android:src="@color/blackShade1"/>
+                android:src="@color/blackShade1" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,19 +59,6 @@
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="Food Price"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/foodDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="3dp"
-                android:layout_marginTop="5dp"
-                android:text="Food Description in paragraph"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
