@@ -61,6 +61,7 @@
     <string name="title_activity_track_order">track_order</string>
     <string name="place_orders">Place Orders</string>
     <string name="fetch_availability"><u>FETCH AVAILABILITY</u></string>
+    <string name="ingredients"><u>Ingredients</u></string>
 
     <string-array name="ROOM_TYPE">
         <item>CHOOSE ROOM</item>
