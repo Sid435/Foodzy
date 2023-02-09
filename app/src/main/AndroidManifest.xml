@@ -44,6 +44,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".personalInfo"
+            android:exported="false"
+            android:label="Personal Information">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

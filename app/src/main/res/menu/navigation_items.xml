@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/idPersonalInfo"
+        android:title="Profile"
+        android:enabled="true"
+        android:icon="@drawable/baseline_person_24"/>
     <item android:id="@+id/idNavMenu"
         android:title="Menu"
         android:enabled="true"
@@ -10,8 +15,8 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_favorite_24"/>
     <item
-        android:id="@+id/idNavhomeAddress"
-        android:title="Home Address"
+        android:id="@+id/idNavhome"
+        android:title="Home"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"/>
     <item
@@ -36,9 +41,5 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_exit_to_app_24"/>
 
-    <item
-        android:id="@+id/idPersonalInfo"
-        android:title="Personal Info"
-        android:enabled="true"
-        android:icon="@drawable/baseline_person_24"/>
+
 </menu>
