@@ -85,18 +85,17 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                     Intent intent3 = new Intent(StaticMenu.this,favouritePage.class);
                     startActivity(intent3);
                 }else if(id == R.id.idLodging){
-                    Intent intent4 = new Intent(StaticMenu.this, LodgingActivity.class);
+                    Intent intent3 = new Intent(StaticMenu.this, LodgingActivity.class);
+                    startActivity(intent3);
+
+                }
+                else if(id == R.id.idPersonalInfo){
+                    Intent intent4 = new Intent(StaticMenu.this,personalInfo.class);
                     startActivity(intent4);
-
                 }
-                else if (id == R.id.idpersInfo){
-                    Intent intent5 = new Intent(StaticMenu.this,personalInfo.class);
-                    startActivity(intent5);
-                }
-
-                else if (id==R.id.idNavhome){
-                    Intent intent5 = new Intent(StaticMenu.this,homePage.class);
-                    startActivity(intent5);
+                else if(id == R.id.idNavhome){
+                    Intent intent4 = new Intent(StaticMenu.this,homePage.class);
+                    startActivity(intent4);
                 }
 
                 else {
@@ -131,7 +130,6 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
 
     private void initDataCategory() {
         userListCategory = new ArrayList<>();
-
         userListCategory.add(new StaticCategoryOptionModal(R.drawable.main_course, "Main Course"));
         userListCategory.add(new StaticCategoryOptionModal(R.drawable.appetizers, "Appetizers"));
         userListCategory.add(new StaticCategoryOptionModal(R.drawable.entres, "Entrées"));
@@ -579,17 +577,12 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
         recyclerViewMenuBeverages.setAdapter(adaptorMenuBeverages);
         adaptorMenuBeverages.notifyDataSetChanged();
     }
-
-
     @Override
     public void onCategoryClick(int position) {
         String category = userListCategory.get(position).getText();
 
         setRecyclerView(category);
     }
-
-
-
     private void setRecyclerView(String category) {
         if (category.equals("Main Course") ){
             recyclerViewMenuMainCourse.setVisibility(View.VISIBLE);recyclerViewMenuAppetizers.setVisibility(View.GONE);recyclerViewMenuEntree.setVisibility(View.GONE);
@@ -612,7 +605,6 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
             initDataMenuEntree();
             initRecyclerViewMenuEntree();
         }
-
         else if(category.equals("Desserts")) {
             recyclerViewMenuMainCourse.setVisibility(View.GONE);recyclerViewMenuAppetizers.setVisibility(View.GONE);recyclerViewMenuEntree.setVisibility(View.GONE);
             recyclerViewMenuDesert.setVisibility(View.VISIBLE);recyclerViewMenuBeverages.setVisibility(View.GONE);
