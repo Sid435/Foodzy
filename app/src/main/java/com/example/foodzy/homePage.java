@@ -87,7 +87,9 @@ public class homePage extends AppCompatActivity {
 
                     Intent intent2 = new Intent(homePage.this, logInPage.class);
                     startActivity(intent2);
-                } else {
+                }else if(id == R.id.idPersonalInfo){
+
+                }else {
                     Toast.makeText(homePage.this, "No Correct Input", Toast.LENGTH_SHORT).show();
                 }
 
