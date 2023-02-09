@@ -85,9 +85,15 @@ public class DeliveryMenuPage extends AppCompatActivity implements DeliveryCateg
 
                     Intent intent2 = new Intent(DeliveryMenuPage.this, logInPage.class);
                     startActivity(intent2);
-                } else {
+                }
+                else if (id==R.id.idNavhome){
+                    Intent intent5 = new Intent(DeliveryMenuPage.this,homePage.class);
+                    startActivity(intent5);
+                }
+                else {
                     Toast.makeText(DeliveryMenuPage.this, "No Correct Input", Toast.LENGTH_SHORT).show();
                 }
+
 
                 drawerLayout.closeDrawer(GravityCompat.START);
 
