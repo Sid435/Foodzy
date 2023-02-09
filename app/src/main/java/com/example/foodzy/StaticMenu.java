@@ -88,7 +88,10 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                     Intent intent3 = new Intent(StaticMenu.this, LodgingActivity.class);
                     startActivity(intent3);
 
-                } else {
+                }else if(id == R.id.idPersonalInfo){
+
+                }
+                else {
                     Toast.makeText(StaticMenu.this, "No Correct Input", Toast.LENGTH_SHORT).show();
                 }
 
@@ -120,7 +123,6 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
 
     private void initDataCategory() {
         userListCategory = new ArrayList<>();
-
         userListCategory.add(new StaticCategoryOptionModal(R.drawable.main_course, "Main Course"));
         userListCategory.add(new StaticCategoryOptionModal(R.drawable.appetizers, "Appetizers"));
         userListCategory.add(new StaticCategoryOptionModal(R.drawable.entres, "Entrées"));
@@ -568,17 +570,12 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
         recyclerViewMenuBeverages.setAdapter(adaptorMenuBeverages);
         adaptorMenuBeverages.notifyDataSetChanged();
     }
-
-
     @Override
     public void onCategoryClick(int position) {
         String category = userListCategory.get(position).getText();
 
         setRecyclerView(category);
     }
-
-
-
     private void setRecyclerView(String category) {
         if (category.equals("Main Course") ){
             recyclerViewMenuMainCourse.setVisibility(View.VISIBLE);recyclerViewMenuAppetizers.setVisibility(View.GONE);recyclerViewMenuEntree.setVisibility(View.GONE);
@@ -601,7 +598,6 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
             initDataMenuEntree();
             initRecyclerViewMenuEntree();
         }
-
         else if(category.equals("Desserts")) {
             recyclerViewMenuMainCourse.setVisibility(View.GONE);recyclerViewMenuAppetizers.setVisibility(View.GONE);recyclerViewMenuEntree.setVisibility(View.GONE);
             recyclerViewMenuDesert.setVisibility(View.VISIBLE);recyclerViewMenuBeverages.setVisibility(View.GONE);

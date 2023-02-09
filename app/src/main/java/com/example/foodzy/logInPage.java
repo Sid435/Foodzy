@@ -82,7 +82,7 @@ public class logInPage extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, logInPage.class);
-        startActivity(intent);
+        finish();
+        System.exit(0);
     }
 }
