@@ -162,6 +162,7 @@
             android:gravity="center"
             android:paddingLeft="10dp"
             android:textAlignment="viewStart"
+            android:textColor="#8C8989"
             android:textStyle="bold" />
 
     </LinearLayout>

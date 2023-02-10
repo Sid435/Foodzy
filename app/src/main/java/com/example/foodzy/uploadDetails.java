@@ -2,6 +2,7 @@ package com.example.foodzy;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,71 +32,113 @@ public class uploadDetails extends AppCompatActivity {
 
     private AppCompatButton submit;
     private RadioButton genderradioButton;
-    private EditText name, lname, phone, mail, pass;
+    private EditText phone, mail, pass, name_ed;
     private RadioGroup gender;
+    String phone_no, name;
+    Boolean forgotpass;
+    TextView sp;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_details);
 
-        phone = findViewById(R.id.phone);
-        mail = findViewById(R.id.mail); pass= findViewById(R.id.pass); gender = findViewById(R.id.gender);
-        submit = findViewById(R.id.submit);
+        DBHandler dbHandler = new DBHandler(this);
 
+        phone = findViewById(R.id.phone);
+        mail = findViewById(R.id.mail);
+        pass = findViewById(R.id.pass);
+        name_ed = findViewById(R.id.Name);
+        gender = findViewById(R.id.gender);
+        submit = findViewById(R.id.submit);
+        sp = findViewById(R.id.starPhone);
 
         int selectedId = gender.getCheckedRadioButtonId();
         genderradioButton = (RadioButton) findViewById(selectedId);
 
-        final ProgressBar progressbar = findViewById(R.id.progressBarSubmitOtp);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String mail2 = mail.getText().toString();
-                String pass2 = pass.getText().toString();
-                String phone2 = phone.getText().toString();
+//        final ProgressBar progressbar = findViewById(R.id.progressBarSubmitOtp);
+        Intent intent = getIntent();
+        forgotpass = intent.getBooleanExtra("forgot password", false);
+        String mail_id = intent.getStringExtra("mail");
+        sp.setVisibility(View.INVISIBLE);
 
-                if(mail2.isEmpty()||pass2.isEmpty()||phone2.isEmpty()){
-                    Toast.makeText(uploadDetails.this, "Please Enter All Details", Toast.LENGTH_SHORT).show();
-                }else{
-                    if(phone2.length() == 10){
-                        progressbar.setVisibility(View.VISIBLE);
-                        submit.setVisibility(View.INVISIBLE);
-                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                                "+91" + phone.getText().toString(),
-                                60,
-                                TimeUnit.SECONDS,
-                                uploadDetails.this,
-                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                                    @Override
-                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                                        progressbar.setVisibility(View.GONE);
-                                        submit.setVisibility(View.VISIBLE);
-                                    }
-
-                                    @Override
-                                    public void onVerificationFailed(@NonNull FirebaseException e) {
-                                        progressbar.setVisibility(View.GONE);
-                                        submit.setVisibility(View.VISIBLE);
-                                        Toast.makeText(uploadDetails.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
-
-                                    @Override
-                                    public void onCodeSent(@NonNull String backendotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                                        progressbar.setVisibility(View.GONE);
-                                        submit.setVisibility(View.VISIBLE);
-                                        Intent intent = new Intent(uploadDetails.this, otpVerification.class);
-                                        intent.putExtra("mobile", phone2);
-                                        intent.putExtra("backendotp", backendotp);
-                                        intent.putExtra("mail", mail.getText().toString());
-                                        intent.putExtra("password", pass.getText().toString());
-                                        startActivity(intent);
-                                    }
-                                }
-                        );
+        if (forgotpass) {
+            sp.setVisibility(View.VISIBLE);
+            phone.setVisibility(View.INVISIBLE);
+            gender.setVisibility(View.INVISIBLE);
+            Cursor t1 = dbHandler.get_name(mail_id);
+            while (t1.moveToNext()) {
+                name = t1.getString(0);
+            }
+            Cursor t2 = dbHandler.get_phone(mail_id);
+            while (t2.moveToNext()) {
+                phone_no = t2.getString(0);
+            }
+            mail.setText(mail_id);
+            String vc = "******";
+            for (int i = 6; i < 10; i++) {
+                vc = vc + phone_no.charAt(i);
+            }
+//            System.out.println(vc);
+//            phone.setText(vc);
+            name_ed.setText(name);
+            sp.setText(vc);
+            pass.setHint("Enter new password");
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (pass.getText().toString().trim().length() == 0) {
+                        pass.setError("Enter new password");
+                    } else {
+                        String new_pass = pass.getText().toString();
+                        Intent intent = new Intent(uploadDetails.this, otpVerification.class);
+                        intent.putExtra("forgot password", true);
+                        intent.putExtra("mail", mail_id);
+                        intent.putExtra("name", name);
+                        intent.putExtra("phone_no", phone_no);
+                        intent.putExtra("new password", new_pass);
+                        startActivity(intent);
                     }
                 }
-            }
-        });
+            });
+        }
+
+
+        else{
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mail.getText().toString().trim().length() == 0 || !mail.getText().toString().contains("@gmail.com")) {
+                        mail.setError("Enter '@gmail.com' mail id");
+                    } else if (name_ed.getText().toString().trim().length() == 0) {
+                        name_ed.setError("Enter user detail");
+                    } else if (phone.getText().toString().trim().length() == 0) {
+                        phone.setError("Enter user detail");
+                    } else if (pass.getText().toString().trim().length() == 0) {
+                        pass.setError("Enter user detail");
+                    } else {
+                        String mail2 = mail.getText().toString();
+                        String name2 = name_ed.getText().toString();
+                        String pass2 = pass.getText().toString();
+                        String phone2 = phone.getText().toString();
+
+                        Boolean checkuser = dbHandler.check_user(mail2);
+                        if (!checkuser) {
+                            Intent intent = new Intent(uploadDetails.this, otpVerification.class);
+                            intent.putExtra("mail", mail2);
+                            intent.putExtra("name", name2);
+                            intent.putExtra("password", pass2);
+                            intent.putExtra("phone_no", phone2);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(uploadDetails.this, "USER ALREADY EXISTS", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(uploadDetails.this, "TRY SIGN IN", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            });
+        }
     }
 }
