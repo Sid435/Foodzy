@@ -222,7 +222,25 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                 "tomato\n" +
                 "ginger\n" +
                 "red chilli\n"));
-        userListMenuMainCourse.add(new StaticMenuOptionsModal(R.drawable.paneer_vindaloo, "Paneer Vindaloo", 100,R.drawable.unfilled_star, ""));
+        userListMenuMainCourse.add(new StaticMenuOptionsModal(R.drawable.paneer_vindaloo, "Paneer Vindaloo", 100,R.drawable.unfilled_star, "Red Chili Pepper\n" +
+                "Coriander Seeds\n" +
+                "Cloves (Laung)\n" +
+                "Cinnamon (Dalchini)\n" +
+                "Green Cardamom (Elaichi)\n" +
+                "Black Peppercorns\n" +
+                "Cumin seeds (Jeera)\n" +
+                "Mustard Seeds (Rai)\n" +
+                "Garlic\n" +
+                "Ginger\n" +
+                "Vinegar \n" +
+                "Tamarind\n" +
+                "Paneer\n" +
+                "Oil\n" +
+                "Onions\n" +
+                "Turmeric (Haldi powder)\n" +
+                "Salt to taste\n" +
+                "Brown Sugar\n" +
+                "Cilantro"));
         userListMenuMainCourse.add(new StaticMenuOptionsModal(R.drawable.vegetable_biriyani, "Vegetable Biryani", 100,R.drawable.unfilled_star,"basmati rice\n" +
                 "onion\n" +
                 "clove\n" +
@@ -393,8 +411,26 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                 "sugar\n" +
                 "corn flour slurry\n" +
                 "onion\n"));
-        userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.medu_vada, "Medu Vada", 100,R.drawable.unfilled_star, ""));
-        userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.stuffed_mashrooms, "Stuffed Mushroom", 100,R.drawable.unfilled_star, ""));
+        userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.medu_vada, "Medu Vada", 100,R.drawable.unfilled_star, "black gram (dhuli urad)\n" +
+                "salt\n" +
+                "asafoetida\n" +
+                "black pepper\n" +
+                "coriander leaves\n" +
+                "ginger\n" +
+                "green chillies\n" +
+                "finely chopped\n" +
+                "Oil"));
+        userListMenuAppetizers.add(new StaticMenuOptionsModal(R.drawable.stuffed_mashrooms, "Stuffed Mushroom", 100,R.drawable.unfilled_star, "Cooking spray\n" +
+                "mushrooms\n" +
+                "butter\n" +
+                "garlic\n" +
+                "breadcrumbs\n" +
+                "Kosher salt\n" +
+                "black pepper\n" +
+                "Parmesan\n" +
+                "cream cheese\n" +
+                "chopped parsley\n" +
+                "chopped thyme"));
     }
 
     private void initRecyclerViewMenuAppetizers() {
@@ -544,7 +580,20 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
                 "condensed milk\n" +
                 "eggs\n" +
                 "pumpkin pie \n"));
-        userListMenuDesert.add(new StaticMenuOptionsModal(R.drawable.pecan_pie_cheesecake, "Pecan Pie Cheese Cake", 100,R.drawable.unfilled_star, ""));
+        userListMenuDesert.add(new StaticMenuOptionsModal(R.drawable.pecan_pie_cheesecake, "Pecan Pie Cheese Cake", 100,R.drawable.unfilled_star, "Cooking spray\n" +
+                "blocks cream cheese, softened\n" +
+                " brown sugar\n" +
+                "eggs\n" +
+                "cream\n" +
+                "all-purpose flour\n" +
+                "vanilla extract\n" +
+                "kosher salt\n" +
+                "graham crackers\n" +
+                "butter\n" +
+                "sugar\n" +
+                "butter\n" +
+                "cinnamon\n" +
+                "pecans\n"));
 
     }
     private void initRecyclerViewMenuDesert() {
@@ -558,13 +607,39 @@ public class StaticMenu extends AppCompatActivity implements StaticCategoryOptio
     private void initDataMenuBeverages() {
         title.setText("Beverages");
         userListMenuBeverages = new ArrayList<>();
-        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.pink_gin, "Pink Gin", 100,R.drawable.unfilled_star, ""));
-        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.lemon_fizz, "Lemon Fizz", 100,R.drawable.unfilled_star, ""));
-        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.sake_fizz_cocktail, "Sake Fizz Cocktail", 100,R.drawable.unfilled_star, ""));
-        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.vanilla_strawbeyy_iced_tea, "Refreshing Vanilla Strawberry Iced Tea", 100,R.drawable.unfilled_star, ""));
-        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.peach_smoothie, "Peach Smoothie", 100,R.drawable.unfilled_star, ""));
-        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.raspberry_smoothie, "Rhubarb Bellini Smoothie", 100,R.drawable.unfilled_star, ""));
-        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.turquoise_tonic, " Turquoise Tonic", 100,R.drawable.unfilled_star, ""));
+        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.pink_gin, "Pink Gin", 100,R.drawable.unfilled_star, "2 ounces gin\n" +
+                "3 to 4 dashes Angostura Bitters\n" +
+                "Lemon twist, for garnish\n"));
+        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.lemon_fizz, "Lemon Fizz", 100,R.drawable.unfilled_star, "1 cup water\n" +
+                "1 cup sugar\n" +
+                "3 to 6 lemons\n" +
+                "2 cups seltzer water\n"));
+        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.sake_fizz_cocktail, "Sake Fizz Cocktail", 100,R.drawable.unfilled_star, "45ml of sake, preferably Tama no Hikari\n" +
+                "30ml of yuzu juice\n" +
+                "1 tbsp of gomme syrup\n" +
+                "75ml of sparkling wine\n"));
+        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.vanilla_strawbeyy_iced_tea, "Refreshing Vanilla Strawberry Iced Tea", 100,R.drawable.unfilled_star, "250 g strawberries\n" +
+                "600 ml water\n" +
+                "4 tsp red rooibos tea\n" +
+                "2 TBSP honey\n" +
+                "1/4 tsp vanilla seeds (from one vanilla pod)\n"));
+        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.peach_smoothie, "Peach Smoothie", 100,R.drawable.unfilled_star, "1 cup of ice\n" +
+                "2 cups frozen peaches\n" +
+                "1 frozen banana\n" +
+                "1 cup peach juice or apple juice\n" +
+                "¼ cup Greek yogurt\n" +
+                "1 tablespoons honey\n"));
+        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.raspberry_smoothie, "Rhubarb Bellini Smoothie", 100,R.drawable.unfilled_star, "12 ounces fresh or thawed frozen raspberries\n" +
+                "1/3 cup rhubarb simple syrup\n" +
+                "1 cup frozen blueberries\n" +
+                "4 ounces sparkling water/sparkling wine\n" +
+                "6 ounces fresh blueberries\n" +
+                "Fresh mint\n"));
+        userListMenuBeverages.add(new StaticMenuOptionsModal(R.drawable.turquoise_tonic, " Turquoise Tonic", 100,R.drawable.unfilled_star, "30ml Beefeater gin\n" +
+                "10ml Creme De Mirtilly\n" +
+                "15ml Blue Curacao\n" +
+                "Tonic water\n" +
+                "Mint sprig and blueberry to garnish\n"));
 
 
 
