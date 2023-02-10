@@ -154,7 +154,7 @@ public class track_order extends FragmentActivity implements OnMapReadyCallback 
             ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 1);
             valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
             valueAnimator.setRepeatMode(ValueAnimator.RESTART);
-            valueAnimator.setDuration(1500000/14); // duration 3 second
+            valueAnimator.setDuration(1500000/18); // duration 3 second
             valueAnimator.setInterpolator(new LinearInterpolator());
             valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override

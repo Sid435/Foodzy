@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".uploadDetails"
     android:background="#101010">
+
     <ImageView
+        android:id="@+id/imageView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/rect_image"/>
+        android:src="@drawable/rect_image" />
     <LinearLayout
         android:id="@+id/headingLinear"
         android:layout_width="match_parent"
@@ -29,116 +31,189 @@
             android:layout_marginBottom="10dp"/>
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/form"
-        android:layout_marginHorizontal="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_width="375dp"
+        android:layout_height="574dp"
         android:layout_centerInParent="true"
+        android:layout_marginHorizontal="20dp"
         android:gravity="center"
-        android:paddingHorizontal="15dp">
-        <LinearLayout
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="10dp">
-
-            <EditText
-                android:id="@+id/mail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="10dp"
-                android:layout_marginVertical="5dp"
-                android:hint="@string/enter_mail"
-                android:textSize="20sp"
-                android:background="@drawable/edittext_background"
-                android:paddingHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:layout_marginBottom="5dp"
-                android:inputType="textEmailAddress"/>
-            <EditText
-                android:id="@+id/phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:paddingVertical="10dp"
-                android:hint="@string/enter_phone_number"
-                android:textSize="20sp"
-                android:background="@drawable/edittext_background"
-                android:paddingHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:layout_marginBottom="5dp"
-                android:inputType="number"/>
-            <EditText
-                android:id="@+id/pass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="10dp"
-                android:layout_marginVertical="5dp"
-                android:hint="Password"
-                android:textSize="20sp"
-                android:background="@drawable/edittext_background"
-                android:inputType="textPassword"
-                android:paddingHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textStyle="bold"
-                android:layout_marginBottom="5dp"/>
-        </LinearLayout>
-        <RadioGroup
-            android:id="@+id/gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingVertical="10dp">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/male"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_weight="1"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/female"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_weight="1"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/other"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:layout_weight="1"/>
-        </RadioGroup>
+        android:orientation="vertical"
+        android:paddingHorizontal="0dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submit"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="303dp"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="408dp"
+            android:background="@drawable/button_with_maroon"
             android:text="@string/submit"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginHorizontal="40dp"
-            android:background="@drawable/button_with_maroon"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.841" />
 
-        <ProgressBar
-            android:id="@+id/progressBarSubmitOtp"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:visibility="gone"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/name"
+            android:layout_width="333dp"
+            android:layout_height="286dp"
+            android:foregroundGravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.451">
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/pass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <EditText
+                android:id="@+id/mail"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/edittext_background"
+                android:hint="@string/enter_mail"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.065" />
+
+            <EditText
+                android:id="@+id/Name"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Enter name"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.378" />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/edittext_background"
+                android:hint="@string/enter_phone_number"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.695" />
+
+            <TextView
+                android:id="@+id/starPhone"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/edittext_background"
+                android:gravity="left"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.687" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RadioGroup
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.64">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/male"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/female"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/other"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </RelativeLayout>
