@@ -47,7 +47,7 @@ public class Deliverycart_details extends AppCompatActivity {
     SharedPreferences.Editor editor ;
     boolean Delivery_location_taken_frm_map,Delivery_location_taken;
     LinearLayout layout;
-    DatabaseReference ref4,ref123,ref560;
+    DatabaseReference ref4,ref560,ref55;
     final int UPI_PAYMENT=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -230,6 +230,8 @@ public class Deliverycart_details extends AppCompatActivity {
             {
                 Toast.makeText(this, "Transaction Successful", Toast.LENGTH_SHORT).show();
                 Log.d("UPI","responseStr: " + approvalRefNo);
+                ref55 = FirebaseDatabase.getInstance().getReference();
+                ref55.child("DELIVERY_CART").removeValue();
                 Intent intent = new Intent(Deliverycart_details.this,order_confirmed.class);
                 startActivity(intent);
             }

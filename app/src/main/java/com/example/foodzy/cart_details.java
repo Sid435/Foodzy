@@ -45,7 +45,7 @@ public class cart_details extends AppCompatActivity {
 
     public ImageView refresh;
 
-    DatabaseReference ref4,ref8,ref123;
+    DatabaseReference ref4,ref8,ref123,ref1;
     final int UPI_PAYMENT=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,6 +221,8 @@ public class cart_details extends AppCompatActivity {
             {
                 Toast.makeText(this, "Transaction Successful", Toast.LENGTH_SHORT).show();
                 Log.d("UPI","responseStr: " + approvalRefNo);
+                ref1 = FirebaseDatabase.getInstance().getReference();
+                ref1.child("DINEIN_CART").removeValue();
             }
             else if ("Payment cancelled by user".equals(paymentCancel))
             {
