@@ -67,11 +67,6 @@ public class otpVerification extends AppCompatActivity {
 
         textView.setText("+91 " + phone3);
 
-        if (checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
-            message_otp();
-        }
-
         message_otp();
 
         numberotpmove();

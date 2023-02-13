@@ -12,11 +12,19 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Menu"
             android:textAlignment="center"
             android:background="#A80404"
             app:titleTextColor="@color/white"
-            android:id="@+id/idToolbarAppBar"/>
+            android:id="@+id/idToolbarAppBar">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Menu"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:fontFamily="@font/satisfy_font"/>
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <RelativeLayout
