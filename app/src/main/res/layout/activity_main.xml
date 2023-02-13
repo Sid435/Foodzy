@@ -36,10 +36,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="0dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="50dp"
+        android:paddingVertical="40dp"
+        android:paddingHorizontal="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -49,9 +50,10 @@
             android:id="@+id/headingText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee_shade"
             android:text="@string/foodzy"
             android:textColor="@color/white"
-            android:textSize="52sp"
+            android:textSize="50sp"
             android:textStyle="bold" />
 
         <TextView
@@ -59,7 +61,9 @@
             android:layout_height="wrap_content"
             android:text="The Restaurant app"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="24sp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/satisfy_font"
             android:textStyle="bold" />
     </LinearLayout>
 

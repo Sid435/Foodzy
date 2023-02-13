@@ -13,9 +13,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="Menu"
+            android:fontFamily="@font/satisfy_font"
             android:textAlignment="center"
             android:background="#A80404"
             app:titleTextColor="@color/white"
+            android:fontFamily="@font/satisfy_font"
             android:id="@+id/idToolbarAppBar"/>
     </com.google.android.material.appbar.AppBarLayout>
     <RelativeLayout

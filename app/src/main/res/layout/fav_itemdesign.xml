@@ -46,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="3dp"
+                android:fontFamily="@font/trade_winds"
                 android:text="Food Name"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -60,6 +61,7 @@
                 android:padding="3dp"
                 android:text="Food Price"
                 android:textAlignment="center"
+                android:fontFamily="@font/trade_winds"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />

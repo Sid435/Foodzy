@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:text="Food-zy"
         android:textSize="24sp"
+        android:fontFamily="@font/satisfy_font"
         android:textColor="@color/white"
         android:textStyle="bold"/>
 
@@ -25,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="abc@gmail.com"
+        android:fontFamily="@font/satisfy_font"
         android:layout_marginVertical="2dp"
         android:textColor="@color/white"
         android:textStyle="bold"/>

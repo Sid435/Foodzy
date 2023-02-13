@@ -22,15 +22,17 @@
     <TextView
         android:id="@+id/idTVDescription"
         android:layout_width="260dp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
         android:layout_height="350dp"
         android:layout_below="@id/idTVTitle"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/trade_winds"
         android:padding="10dp"
         android:scrollbars="vertical"
-        android:textAlignment="textStart"
         android:text="Description"
+
+        android:textAlignment="textStart"
         android:textColor="@color/white"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:textStyle="bold" />
 </RelativeLayout>
