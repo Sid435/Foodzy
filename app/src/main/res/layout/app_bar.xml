@@ -9,15 +9,23 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:titleTextColor="@color/white"
+            android:textAlignment="center"
             android:background="#A80404"
-            android:id="@+id/idToolbarAppBar"/>
-
+            app:titleTextColor="@color/white"
+            android:id="@+id/idToolbarAppBar">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Foodzy"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:fontFamily="@font/satisfy_font"/>
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,7 +1,9 @@
 package com.example.foodzy;
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -42,6 +44,9 @@ public class uploadDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_details);
+        if (checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
+        }
 
         DBHandler dbHandler = new DBHandler(this);
 
@@ -61,6 +66,7 @@ public class uploadDetails extends AppCompatActivity {
         forgotpass = intent.getBooleanExtra("forgot password", false);
         String mail_id = intent.getStringExtra("mail");
         sp.setVisibility(View.INVISIBLE);
+
 
         if (forgotpass) {
             sp.setVisibility(View.VISIBLE);

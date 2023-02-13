@@ -97,7 +97,6 @@ public class Deliverycart_details extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Toast.makeText(Deliverycart_details.this, "pressed", Toast.LENGTH_SHORT).show();
                     ref560 = FirebaseDatabase.getInstance().getReference("DELIVERY_CART");
                     ref560.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
