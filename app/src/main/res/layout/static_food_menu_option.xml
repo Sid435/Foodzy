@@ -50,6 +50,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
+                android:fontFamily="@font/trade_winds"
                 android:textStyle="bold" />
 
             <TextView
@@ -61,6 +62,7 @@
                 android:text="Food Price"
                 android:textAlignment="center"
                 android:textColor="@color/white"
+                android:fontFamily="@font/trade_winds"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>

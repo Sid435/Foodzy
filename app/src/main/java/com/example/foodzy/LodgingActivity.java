@@ -39,6 +39,7 @@ public class LodgingActivity extends AppCompatActivity {
         name = findViewById(R.id.editTextTextPersonName);
         address = findViewById(R.id.editTextTextPostalAddress);
         sqsize = findViewById(R.id.spinner2);
+        sqsize.setBackgroundColor(000000);
         phn = findViewById(R.id.editTextPhone);
         date = findViewById(R.id.editTextDate);
         time = findViewById(R.id.editTextTime);

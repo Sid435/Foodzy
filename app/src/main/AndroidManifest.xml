@@ -19,6 +19,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAQ1UfJOnA_z6hOyOW379Cb-bb2D8vDXwI" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
         <activity
             android:name=".order_confirmed"
             android:exported="false">

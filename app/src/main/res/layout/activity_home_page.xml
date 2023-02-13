@@ -20,6 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:itemShapeFillColor="#F4FEFF"
         android:id="@+id/navigationView"
         app:headerLayout="@layout/header_layout"
         app:menu="@menu/navigation_items"/>

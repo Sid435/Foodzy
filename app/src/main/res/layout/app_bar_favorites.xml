@@ -12,6 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="Favorites"
+            android:fontFamily="@font/satisfy_font"
             android:textAlignment="center"
             android:background="#A80404"
             app:titleTextColor="@color/white"

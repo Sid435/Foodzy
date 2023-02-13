@@ -42,6 +42,7 @@
                 android:padding="3dp"
                 android:textSize="18sp"
                 android:textColor="@color/white"
+                android:fontFamily="@font/trade_winds"
                 android:text="Food Name"
                 android:textStyle="bold"
                 android:id="@+id/idTVFood" />

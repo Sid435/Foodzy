@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/bungee_shade</item>
+        <item>@font/ewert</item>
+        <item>@font/faster_one</item>
+        <item>@font/fontdiner_swanky</item>
+        <item>@font/goblin_one</item>
+        <item>@font/italianno</item>
+        <item>@font/jim_nightshade</item>
+        <item>@font/lacquer</item>
+        <item>@font/marck_script</item>
+        <item>@font/meddon</item>
+        <item>@font/monsieur_la_doulaise</item>
+        <item>@font/nosifer</item>
+        <item>@font/oleo_script_swash_caps_bold</item>
+        <item>@font/proza_libre</item>
+        <item>@font/proza_libre_bold</item>
+        <item>@font/sancreek</item>
+        <item>@font/trade_winds</item>
+    </array>
+</resources>
