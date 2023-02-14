@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,10 +60,12 @@ public class StaticMenuOptionsAdaptor extends RecyclerView.Adapter<StaticMenuOpt
                         if (snapshot.hasChild(text.toUpperCase())){
                             System.out.println("contains");
                             ref1.child(text.toUpperCase()).removeValue();
+                            Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT).show();
                         }
                         else{
                             System.out.println("not contained");
                             ref1.child(text.toUpperCase()).setValue(price);
+                            Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT).show();
                         }
                     }
 
