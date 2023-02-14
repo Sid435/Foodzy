@@ -14,7 +14,7 @@
             android:textAlignment="center"
             android:background="#A80404"
             app:titleTextColor="@color/white"
-            android:id="@+id/idToolbarAppBar">
+            android:id="@+id/idToolbarAppBarFav">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
