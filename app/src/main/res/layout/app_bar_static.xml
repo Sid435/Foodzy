@@ -48,6 +48,7 @@
             android:textSize="20dp"
             android:padding="5dp"
             android:text="Main Course"
+            android:fontFamily="@font/trade_winds"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:id="@+id/idTVFoodtype"
