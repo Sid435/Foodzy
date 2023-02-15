@@ -31,7 +31,7 @@ public class personalInfo extends AppCompatActivity implements  addressdialogbox
     Button b3,b4;
     DatabaseReference ref1,ref2;
     final String topics1[] = {"Name","Mobile","Email"};
-    final String data1[] = {"Developer","9999999999","gmail.com"};
+    final String data1[] = {"Siddharth","+91-8510071981","siddharthkumar435gmail.com"};
     final int pics1[] = {R.drawable.person1,R.drawable.number1,R.drawable.email1};
 
 
