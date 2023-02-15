@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -38,10 +39,13 @@ public class homePage extends AppCompatActivity {
     private final Handler sliderHandler = new Handler();
     LinearLayout dineIn, delivery, tableBooking, lodging;
 //    LinearLayout menu;
+    String Name = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        DBHandler dbHandler = new DBHandler(this);
 
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         dineIn = findViewById(R.id.idLLDineIn);
@@ -63,6 +67,15 @@ public class homePage extends AppCompatActivity {
         View header=navigationView.getHeaderView(0);
         name = (TextView)header.findViewById(R.id.idName);
         email = (TextView)header.findViewById(R.id.idEmail);
+        Intent intent = getIntent();
+        String mail_id = intent.getStringExtra("email");
+        email.setText(mail_id);
+        Cursor t = dbHandler.get_name(mail_id);
+        while (t.moveToNext()){
+            Name = t.getString(0);
+        }
+        name.setText(Name);
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
