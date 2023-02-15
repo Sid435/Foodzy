@@ -58,6 +58,7 @@ public class logInPage extends AppCompatActivity {
                         editor.commit();
 
                         Intent intent = new Intent(logInPage.this,homePage.class);
+                        intent.putExtra("email",mail2);
                         startActivity(intent);
                     }
                     else {
