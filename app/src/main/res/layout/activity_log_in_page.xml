@@ -27,10 +27,9 @@
                 android:id="@+id/idIVLogoImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/imageview_background"
-                android:padding="5dp"
+
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/logoformainpage" />
 
             <LinearLayout
                 android:id="@+id/idLLMail"
