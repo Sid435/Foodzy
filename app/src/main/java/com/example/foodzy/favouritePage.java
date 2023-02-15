@@ -84,7 +84,16 @@ public class favouritePage extends AppCompatActivity {
 
                     Intent intent2 = new Intent(favouritePage.this, logInPage.class);
                     startActivity(intent2);
-                } else {
+                }else if(id == R.id.idPersonalInfo){
+                    Intent intent4 = new Intent(favouritePage.this,personalInfo.class);
+                    startActivity(intent4);
+                }
+                else if(id == R.id.idNavhome){
+                    Intent intent4 = new Intent(favouritePage.this,homePage.class);
+                    startActivity(intent4);
+                }
+
+                else {
                     Toast.makeText(favouritePage.this, "No Correct Input", Toast.LENGTH_SHORT).show();
                 }
 
@@ -93,7 +102,6 @@ public class favouritePage extends AppCompatActivity {
                 return true;
             }
         });
-
 
         reciepes.put("chicken shashlic","chicken_shashlic");
         reciepes.put("malai kofta","malai_kofta");
