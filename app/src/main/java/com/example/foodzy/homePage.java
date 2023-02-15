@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -32,6 +33,7 @@ public class homePage extends AppCompatActivity {
     private ViewPager2 viewPager2;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    TextView name, email;
     Toolbar toolbarAppbar;
     private final Handler sliderHandler = new Handler();
     LinearLayout dineIn, delivery, tableBooking, lodging;
@@ -43,7 +45,6 @@ public class homePage extends AppCompatActivity {
 
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         dineIn = findViewById(R.id.idLLDineIn);
-//        menu = findViewById(R.id.idLLMenu);
         delivery = findViewById(R.id.idLLDelivery);
         tableBooking = findViewById(R.id.idLLTableBooking);
         lodging = findViewById(R.id.idHotelLodging);
@@ -59,6 +60,9 @@ public class homePage extends AppCompatActivity {
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        View header=navigationView.getHeaderView(0);
+        name = (TextView)header.findViewById(R.id.idName);
+        email = (TextView)header.findViewById(R.id.idEmail);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
