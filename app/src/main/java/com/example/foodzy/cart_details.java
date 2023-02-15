@@ -92,7 +92,7 @@ public class cart_details extends AppCompatActivity {
                 catch (Exception ignored){}
 
 
-                payusingupi("Name","paytm-27619993@paytm","", final_CARTprice_final.toString());
+                payusingupi("Name","airtel66.payu@icici","", "1");
             }
         });
 
