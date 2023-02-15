@@ -66,9 +66,7 @@ public class otpVerification extends AppCompatActivity {
         ProgressBar progressbar2 = findViewById(R.id.progressBarverifyOtp);
 
         textView.setText("+91 " + phone3);
-
         message_otp();
-
         numberotpmove();
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,8 +77,6 @@ public class otpVerification extends AppCompatActivity {
                     String enterCodeOtp = one.getText().toString() + two.getText().toString() + three.getText().toString() +
                             four.getText().toString() + five.getText().toString() + six.getText().toString();
                     int enteredCodeOtp = Integer.parseInt(enterCodeOtp);
-//                    progressbar2.setVisibility(View.VISIBLE);
-//                    verify.setVisibility(View.INVISIBLE);
                     if (enteredCodeOtp == otp_code) {
                         if (forgotpass) {
                             String mail3 = intent.getStringExtra("mail");

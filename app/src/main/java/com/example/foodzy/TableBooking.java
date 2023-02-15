@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -30,6 +31,8 @@ public class TableBooking extends AppCompatActivity {
     Spinner sqsize;
     AppCompatButton b;
     Button sb;
+    ImageView im;
+
     TextView t,t2,t3,t17;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -48,11 +51,17 @@ public class TableBooking extends AppCompatActivity {
         t3 = findViewById(R.id.textView3);
         t17 = findViewById(R.id.textView17);
         sb = findViewById(R.id.switch1);
-
+        im = findViewById(R.id.idBackButtonTableBooking);
         t.setText("* NOTE:  DOUBLE TAP ON DATE AND TIME.");
         t17.setText("INCASE OF SQUAD SIZE CHANGE , RECHECK THE AVAILABILITY");
         t3.setText("FETCH AVAILABILITY");
-
+        im.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TableBooking.this, homePage.class);
+                startActivity(intent);
+            }
+        });
         sb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

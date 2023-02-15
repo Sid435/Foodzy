@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:fontFamily="@font/satisfy_font"
+                android:fontFamily="@font/satisfy"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -47,7 +47,7 @@
                 android:layout_marginTop="4dp"
                 android:text="TextView"
                 android:textColor="@color/black"
-                android:fontFamily="@font/satisfy_font"
+                android:fontFamily="@font/satisfy"
                 android:textSize="18sp"
                 android:textStyle="bold">
 
@@ -116,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="240dp"
                 android:text="prices"
-                android:fontFamily="@font/satisfy_font"
+                android:fontFamily="@font/satisfy"
                 android:textColor="@color/black"
                 android:textStyle="bold"></TextView>
 

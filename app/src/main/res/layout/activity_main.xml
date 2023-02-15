@@ -63,7 +63,7 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             android:layout_marginStart="15dp"
-            android:fontFamily="@font/satisfy_font"
+            android:fontFamily="@font/satisfy"
             android:textStyle="bold" />
     </LinearLayout>
 

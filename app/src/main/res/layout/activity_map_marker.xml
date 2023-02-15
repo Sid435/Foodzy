@@ -40,7 +40,7 @@
         android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:fontFamily="@font/satisfy_font"
+        android:fontFamily="@font/satisfy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

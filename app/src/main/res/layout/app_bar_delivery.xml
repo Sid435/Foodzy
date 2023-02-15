@@ -23,7 +23,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="28sp"
-                android:fontFamily="@font/satisfy_font"/>
+                android:fontFamily="@font/satisfy"/>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
