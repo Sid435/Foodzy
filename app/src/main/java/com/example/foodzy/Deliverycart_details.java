@@ -120,7 +120,7 @@ public class Deliverycart_details extends AppCompatActivity {
                     Toast.makeText(Deliverycart_details.this, "error", Toast.LENGTH_SHORT).show();
                 }
                 if (Delivery_location_taken || Delivery_location_taken_frm_map){
-                    payusingupi("Name","airtel66.payu@icici","", "1");
+                    payusingupi("Name","airtel66.payu@icici","", "100");
                 }
                 else {
                     Toast.makeText(Deliverycart_details.this, "Select delivery location", Toast.LENGTH_SHORT).show();
